@@ -1,0 +1,186 @@
+---
+import '../styles/global.css'
+import image1 from "../assets/conceptArtSC.png"
+
+
+
+export interface Project {
+  title: string;
+  image: string;
+  description: string;
+  link?: string;
+}
+
+export interface Section {
+  title: string;
+  projects: Project[];
+}
+
+export interface Props {
+  sections: Section[];
+}
+
+const { sections } = Astro.props;
+---
+
+<main class="portfolio-page">
+  {sections.map(section => (
+    <section class="project-section">
+      <h4 class="section-title">{section.title}</h4>
+      <div class="project-grid">
+        {section.projects.map(project => (
+          <a href={project.link} class="project-card-link">
+            <div class="project-card">
+              <img src={project.image} alt={project.title} />
+              <div class="project-content">
+                  <h3>{project.title}</h3>
+                  <p>{project.description}</p>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+  ))}
+</main>
+
+<style>
+:root {
+  --clip-shape: polygon(
+    0% 0%,
+    90% 0%,     /* clip in 10% of width */
+    100% 10%,   /* drop down 10% of height */
+    100% 100%,
+    0% 100%
+  );
+}
+
+.portfolio-page {
+  padding: 2rem;
+  background: #fafafa;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #3a1919;
+  padding-bottom: 0.5rem;
+  color: #222;
+  text-align: center;
+}
+
+.project-section {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.project-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2vw;
+  justify-content: space-evenly;
+}
+
+/* Clipped shape card */
+.project-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  clip-path: var(--clip-shape);
+  box-sizing: border-box;
+    background: #fc0a0a;
+}
+.project-card-link {
+  clip-path: var(--clip-shape);
+ 
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  flex: 1 1 calc(33.333% - 5rem);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card-link:hover {
+  transform: scale(1.03);
+  clip-path: var(--clip-shape);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+
+/* Border mask */
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid #660a0a;
+  clip-path: var(--clip-shape);
+  z-index: 1;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+/* Image should fill the container perfectly */
+.project-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Content sits above image */
+.project-content {
+  position: relative;
+  z-index: 2;
+  background: rgba(255,255,255,0.9);
+  padding: 1rem;
+}
+
+.project-card h3 {
+  font-size: clamp(1rem, 1.25rem, 2rem);
+  margin-top: 0.75rem;
+  color: #111;
+}
+
+.project-card p {
+  font-size: clamp(.5rem, .95rem, 1.5rem);
+  color: #444;
+  margin-top: 0.5rem;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  :root {
+    --clip-shape: polygon(
+      0% 0%,
+      80% 0%,
+      100% 20%,
+      100% 100%,
+      0% 100%
+    );
+  }
+
+  .project-card {
+    flex: 1 1 calc(100% - 1rem);
+    max-width: calc(100% - 1rem);
+  }
+
+  .project-card h3 {
+    font-size: 1.25rem;
+  }
+}
+
+/* TABLET */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .project-card {
+
+  }
+}
+</style>

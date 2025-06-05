@@ -1,0 +1,263 @@
+---
+import img1 from '../assets/conceptArtVid.png';
+import img2 from '../assets/conceptArtSC.png';
+import img3 from'../assets/pageSample.png';
+import img4 from '../assets/sample4.png';
+import img5 from '../assets/sample5.gif';
+
+import '../styles/global.css'
+
+const images = [
+  { src: img1.src, alt: "Concept art 1", caption: "Hi! My name is Eduardo, I am a college student working on my mechanical engineering degree! I grew up in NYC, and am currently studying at Cornell University in Ithaca, NY. I started drawing in middle school after a friend lent me a few comic books, and I fell in love with the medium. Since then, I worked art fundamentals in order to be able to tell cool, clear stories with flashy and hopefully appealing art! I mainly draw digitally, which allows me to work quickly, jumping from thumbnails and sketch to inks and line art. A lot of my personal work is in the realm of science fiction, however I also have experience drawing super heroes and fantasy. I have a personal comic book project I am working on which makes up a lot of this portfolio. I have also spent a significant amount of time at my college working on indie game development as an artist, so I have experience with working on projects from start to finish, from mood boarding, to concept art and idea generation, to final assets and products.", 
+  row: 1, size: "large", captionLocation: "center" },
+  { src: img2.src, alt: "Sketch study 2", caption: "Scene composition study I am a college student working on my mechanical engineering degree! I grew up in NYC, and am currently studying at Cornell University in Ithaca, NY. I started drawing in middle school after a friend lent me a few comic books, and I fell in love with the medium. Since then, I worked art fundamentals in order to be able to tell cool, clear stories with flashy and hopefully appealing art! I mainly draw digitally, which allows me to work quickly, jumping from thumbnails and sketch to inks and line art. A lot of my personal work is in the realm of science fiction, however I also have experience drawing super heroes and fantasy. I have a personal comic book project I am working on which makes up a lot of this portfolio. I have also spent a significant amount of time at my college working on indie game development as an artist, so I have experience with working on projects from start to finish, from mood boarding, to concept art and idea generation, to final assets and product Scene composition study I am a college student working on my mechanical engineering degree! I grew up in NYC, and am currently studying at Cornell University in Ithaca, NY. I started drawing in middle school after a friend lent me a few comic books, and I fell in love with the medium. Since then, I worked art fundamentals in order to be able to tell cool, clear stories with flashy and hopefully appealing art! I mainly draw digitally, which allows me to work quickly, jumping from thumbnails and sketch to inks and line art. A lot of my personal work is in the realm of science fiction, however I also have experience drawing super heroes and fantasy. I have a personal comic book project I am working on which makes up a lot of this portfolio. I have also spent a significant amount of time at my college working on indie game development as an artist, so I have experience with working on projects from start to finish, from mood boarding, to concept art and idea generation, to final assets and product",
+   row: 2, size: "large", captionLocation: "right", fontSize: ".58vw", captionWidth: "40vw", override: "55vw" },
+  { src: img3.src, alt: "Finished poster 3", caption: "hi", 
+  row: 3, size: "large", captionLocation: "center",  },
+  { src: img4.src, alt: "Image 4", caption: "Hi! My name is Eduardo, I am a college student working on my mechanical engineering degree! I grew up in NYC, and am currently studying at Cornell University in Ithaca, NY.I started drawing in middle school after a friend lent me a few comic books, and I fell in love with the medium. Since then, I worked art fundamentals in order to be able to tell cool, clear stories with flashy and hopefully appealing art! I mainly draw digitally, which allows me to work quickly, jumping from thumbnails and sketch to inks and line art. A lot of my personal work is in the realm of science fiction, however I also have experience drawing super heroes and fantasy. I have a personal comic book project I am working on which makes up a lot of this portfolio. I have also spent a significant amount of time at my college working on indie game development as an artist, so I have experience with working on projects from start to finish, from mood boarding, to concept art and idea generation, to final assets and products.n", 
+  row: 4, size: "small", captionLocation: "right", fontSize: ".58vw", captionWidth: "13vw", override: "20vw" },
+  { src: img2.src, alt: "Image 5", caption: "blah\n\nblah\nblah", 
+  row: 4, size: "medium", captionLocation: "center", fontSize: ".58vw", captionWidth: "6vw",  override: "36.5vw" }
+];
+---
+<section class="image-showcase">
+  {Array.from(new Set(images.map(img => img.row))).map(row => (
+    <div class="image-row">
+      {images.filter(img => img.row === row).map(image => (
+        <div class={`image-entry ${image.captionLocation}`.trim()}>
+          
+
+          
+          {(image.captionLocation === 'left') && image.caption && (
+            <div 
+              class="caption long" 
+              style={`font-size: clamp(0.6rem, ${image.fontSize || '0.55vw'}, 1.25rem); width: ${image.captionWidth || '15vw'}`}
+            >
+              {image.caption.split('\n\n').map(para => (
+                <p>{para}</p>
+              ))}
+            </div>
+          )}
+
+          <div class={`image-wrapper ${image.size}`} style={`max-width: ${image.override}`}>
+            <div class="image-scaler">
+              <img src={image.src} alt={image.alt} />
+            </div>
+          </div>
+
+          {(image.captionLocation === 'right') && image.caption && (
+            <div 
+              class="caption long" 
+              style={`font-size: clamp(0.01rem, ${image.fontSize || '0.55vw'}, 3rem); width: ${image.captionWidth || '15vw'}`}
+            >
+              {image.caption.split('\n\n').map(para => (
+                <p>{para}</p>
+              ))}
+            </div>
+          )}
+
+          {image.captionLocation === 'center' && image.caption && (
+            <div class="caption" style={`font-size: clamp(0.6rem, ${image.fontSize || '0.55vw'}, 1.25rem)`}>
+              {image.caption.split('\n\n').map(para => (
+                <p>{para}</p>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  ))}
+
+<style>
+  .image-showcase {
+    max-width: 85vw;
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-sizing: border-box;
+    padding-right: 2vw;
+    background: rgba(255,0,0,0.7);
+  }
+
+  .image-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5vw;
+    justify-content: flex-start;
+    align-items: stretch;
+    background: rgba(0,0,255,0.7);
+  }
+
+  .image-entry {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    
+
+    gap: 0.25vw;
+  }
+
+  .image-entry.center{
+    flex: 1 1 100%;
+  }
+  .image-entry.left,
+  .image-entry.right {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .image-entry.right {
+    flex-direction: row-reverse;
+  }
+
+  .image-wrapper {
+    background: #0f172a;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    border: 1px solid #334155;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1 1 auto;
+    min-width: 0;
+    align-self: stretch;
+  }
+
+  .image-scaler {
+    display: flex;
+    align-items: stretch;
+    flex-grow: 1;
+  }
+
+  .image-scaler img {
+    width: 100%;
+    height: auto;
+    
+    object-fit: contain;
+    display: block;
+  }
+
+  .image-wrapper.small {
+
+    max-width: 17vw;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+  }
+
+  .image-wrapper.medium {
+    max-width: 35vw;
+  }
+
+  .image-wrapper.large {
+    max-width: 80vw;
+    flex: 1;
+  }
+
+  .caption {
+    text-align: center;
+    font-size: 0.55vw;
+    line-height: 1.4rem;
+    color: #150e16;
+    background: rgba(255,0,0,0.7);
+    padding-left:.75rem;
+    padding-right:.75rem;
+    width: 100%;
+    padding-bottom:;
+  }
+
+  
+
+.caption.long {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  overflow-y: auto;
+  
+
+  width: 15vw;
+  padding: 0.75vw;
+  font-size: inherit;
+  line-height: 1.4rem;
+  background: rgba(25, 255, 0, 0.7);
+  color: #150e16;
+  box-sizing: border-box;
+}
+
+.caption,
+.caption.long {
+  font-size: clamp(0.75rem, 0.55vw + 0.5rem, 1.25rem);
+}
+
+.caption.long p {
+  padding: 0.75rem;
+  margin: 0;
+  font-size: inherit;
+  color: inherit;
+  text-align: center;
+  line-height: 1.4;
+
+  max-height: 100%;
+  overflow: auto;         /* Scroll if needed */
+  word-break: break-word;
+}
+
+  .caption.none{
+    width: 0px;
+    height: 0px;
+  }
+
+ 
+
+
+  .image-entry.left,
+  .image-entry.right {
+    display: flex;
+    align-items: stretch;
+    flex-direction: row;
+  }
+
+@media (max-width: 768px) {
+  .image-showcase {
+    padding: 1rem;
+  }
+
+  .image-row {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .image-entry,
+  .image-entry.left,
+  .image-entry.right {
+    flex-direction: column !important;
+    align-items: center;
+    width: 100%;
+  }
+
+  .image-wrapper.small,
+  .image-wrapper.medium {
+    max-width: 100%;
+  }
+  .image-entry.left,
+  {
+    flex-direction: column-reverse !important;
+  }
+
+  .caption.long {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    text-align: center;
+    flex-basis: auto;
+    padding: 0.5rem;
+    background: rgba(25,255,0,0.7);
+    box-sizing: border-box;
+  }
+}
+</style>

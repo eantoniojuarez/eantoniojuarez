@@ -1,0 +1,86 @@
+---
+export interface Props {
+  title: string;
+  caption: string;
+  image?: string; // Optional background image
+}
+
+const { title, caption, image } = Astro.props;
+---
+
+<div id="container" style={`--hero-img: url('${image ?? ""}')`}>
+  <div class="background"></div>
+
+  <section id="hero">
+    <div class="hero-text">
+      <h1 class="hero-title">{title}</h1>
+      <p class="hero-caption">{caption}</p>
+    </div>
+  </section>
+</div>
+
+<style>
+
+:root {
+  --hero-min-height: 80vh;
+  --hero-bg: rgba(0, 0, 255, 0.6); /* fallback solid color */
+
+}
+
+#container {
+  font-family: Inter, Roboto, 'Helvetica Neue', Arial, sans-serif;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Background layer */
+.background {
+  position: absolute;
+  inset: 0;
+  background: var(--hero-bg);
+  background-image: var(--hero-img);
+  background-size: cover;
+  background-position: center;
+  filter: blur(40px);
+  z-index: -1;
+  opacity: 0.6;
+}
+
+/* Hero content wrapper */
+#hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(6px);
+  min-height: var(--hero-min-height); /* allows it to grow */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Inner text */
+.hero-text {
+  max-width: 800px;
+  width: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 5vw, 5rem);
+  margin: 0;
+}
+
+.hero-caption {
+  font-size: clamp(1rem, 2vw, 2rem);
+  margin-top: 0.75rem;
+  line-height: 1.4;
+  color: #f0f0f0;
+}
+
+</style>

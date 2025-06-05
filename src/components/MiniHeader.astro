@@ -1,0 +1,79 @@
+---
+import SidebarTitles from "./SidebarTitles.astro";
+import Socials from "./Socials.astro";
+---
+
+<button id="hamburgerBtn" class="hamburger" aria-label="Toggle menu">
+  ☰
+</button>
+
+<aside class="mobile-sidebar" id="mobileSidebar">
+  <SidebarTitles />
+  <Socials />
+</aside>
+
+<style>
+  .hamburger {
+    display: none;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    z-index: 1000;
+    background: none;
+    border: none;
+    color: rgb(14, 9, 9);
+    cursor: pointer;
+  }
+
+    .mobile-sidebar {
+        display: none; 
+    }
+  @media (max-width: 768px) {
+    .hamburger {
+      display: block;
+    }
+
+    .mobile-sidebar {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 70vw;
+    height: 100vh;
+    background-color: #cc4699;
+    padding: 1rem;
+    z-index: 999;
+    overflow-y: auto;
+    transition: left 0.3s ease;
+    flex-direction: column;
+    gap: 1rem;
+    }
+
+    .mobile-sidebar.open {
+      left: 0;
+    }
+  }
+
+
+
+  .mobile-sidebar.open {
+    left: 0;
+  }
+
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById("hamburgerBtn");
+    const sidebar = document.getElementById("mobileSidebar");
+
+    if (btn && sidebar) {
+      btn.addEventListener("click", () => {
+        sidebar.classList.toggle("open");
+      });
+    }
+  });
+</script>
+
+

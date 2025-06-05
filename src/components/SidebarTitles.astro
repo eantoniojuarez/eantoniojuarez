@@ -1,0 +1,103 @@
+---
+import '../styles/global.css';
+---
+
+
+<header class="main">
+    <div class="nav-item">
+        <a href="../" class="nav-title-link">
+            <h2 class="nav-title">CHARACTER DESIGN</h2>
+        </a>
+        <a href="../projects/Silver_Cage_Concepts" class="nav-caption-link">
+            <h3 class="nav-caption">SILVER CAGE</h3>
+        </a>
+        <a href="../projects/Hansa_the_Traveler" class="nav-caption-link">
+            <h3 class="nav-caption">TALES FROM THE HINTERLAND</h3>
+        </a>
+    </div>
+  
+   <hr class="glow-divider" />
+  
+    <div class="nav-item">
+        <a href="../" class="nav-title-link">
+            <h2 class="nav-title">VIDEO GAME ART</h2>
+        </a>
+        <a href="../projects/Grub_Bug" class="nav-caption-link">
+            <h3 class="nav-caption">GRUB BUG</h3>
+        </a>
+        <a href="../projects/Super_Food_Chain" class="nav-caption-link">
+            <h3 class="nav-caption">SUPER FOOD CHAIN</h3>
+        </a>
+    </div>
+
+    <hr class="glow-divider" />
+
+    <div class="nav-item">
+        <a href="../" class="nav-title-link">
+            <h2 class="nav-title">SEQUENTIAL ART</h2>
+        </a>
+        <a href="../projects/Silver_Cage" class="nav-caption-link">
+            <h3 class="nav-caption">SILVER CAGE</h3>
+        </a>
+        <a href="../projects/SamplePages" class="nav-caption-link">
+            <h3 class="nav-caption">SAMPLES</h3>
+        </a>
+    </div>
+</header>
+
+<style>
+
+ .nav-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+  padding: 2vh 2vw;
+  box-sizing: border-box;
+  gap: 2vh;
+  font-family: Inter, Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.nav-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.nav-title-link,
+.nav-caption-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 100%;
+}
+
+.nav-title {
+  font-size: clamp(1.2rem, 2.5vw, 2.2rem);
+  margin: 0.5rem 0;
+  font-weight: 700;
+}
+
+.nav-caption {
+  font-size: clamp(0.8rem, 2vw, 1.3rem);
+  margin: 0.2rem 0;
+  font-weight: 400;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.nav-caption-link:hover .nav-caption {
+  opacity: 1;
+  color: var(--accent, #94a3b8);
+}
+
+.nav-title-link:hover .nav-title {
+  color: var(--accent, #38bdf8);
+}
+
+</style>

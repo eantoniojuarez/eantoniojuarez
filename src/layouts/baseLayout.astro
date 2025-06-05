@@ -1,0 +1,113 @@
+---
+const { children } = Astro.props;
+import Socials from "../components/Socials.astro";
+import SidebarTitles from "../components/SidebarTitles.astro";
+import MiniHeader from "../components/MiniHeader.astro";
+---
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Jura:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baumans&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Pangolin&display=swap" rel="stylesheet">
+</head>
+
+<div class="layout">
+  <aside class="sidebar" id="dynamic-sidebar">
+    <SidebarTitles />
+    <Socials />
+  </aside>
+
+  <main class="content" id="main-content">
+    <slot />
+  </main>
+</div>
+
+<style>
+.layout {
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  max-width: 20vw;
+  background-color: #0f172a;
+  color: white;
+  padding: 0.2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.content {
+  padding: .2rem;
+  box-sizing: border-box;
+  transition: margin-left 0.3s ease;
+}
+  .sidebar-content {
+  flex-grow: 1; /* Pushes the footer down */
+}
+  .sidebar.desktop-sidebar{
+    display: flex;
+  }
+.social-header {
+  padding-bottom: 2rem; /* Adjust bottom spacing */
+  display: flex;
+  justify-content: center;
+}
+
+  @media (max-width: 768px) {
+    .layout {
+      flex-direction: column;
+    }
+
+    .sidebar {
+      position: relative;
+      width: 100%;
+      height: auto;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .content {
+      margin-left: 0;
+      width: 100%;
+    }
+   
+    
+    .sidebar.desktop-sidebar{
+      display: none;
+    }
+    
+  }
+</style>
+<script type="module">
+  function adjustContentMargin() {
+    const sidebar = document.getElementById("dynamic-sidebar");
+    const content = document.getElementById("main-content");
+
+    if (!sidebar || !content) return;
+
+    const isMobile = window.innerWidth <= 768;
+
+    if (isMobile) {
+      content.style.marginLeft = "0";
+      sidebar.style.position = "relative";
+      sidebar.style.width = "100%";
+      sidebar.style.height = "auto";
+    } else {
+      sidebar.style.position = "fixed";
+      sidebar.style.height = "100vh";
+      sidebar.style.width = "max-content";
+      const sidebarWidth = sidebar.offsetWidth;
+      content.style.marginLeft = `${sidebarWidth}px`;
+    }
+  }
+
+  window.addEventListener("load", adjustContentMargin);
+  window.addEventListener("resize", adjustContentMargin);
+</script>
+

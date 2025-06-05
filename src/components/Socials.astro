@@ -1,0 +1,116 @@
+---
+import InstagramIcon from '../assets/instagram_icon.svg';
+import ArtStationIcon from '../assets/artstation_icon.svg';
+import LinktreeIcon from '../assets/linktree_icon.svg';
+
+const socialLinks = [
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/ed.deeee/",
+    Icon: InstagramIcon
+  },
+  {
+    name: "ArtStation",
+    href: "https://www.artstation.com/eddythedolphin",
+    Icon: ArtStationIcon
+  },
+  {
+    name: "Linktree",
+    href: "https://linktr.ee/ed.deeee",
+    Icon: LinktreeIcon
+  }
+];
+---
+
+<header class="social-header">
+  <nav class="social-nav">
+    <ul>
+      {socialLinks.map(link => (
+        <li>
+          <a href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.name}>
+            <link.Icon class="icon" />
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .social-header {
+    
+    z-index: 100;
+    width: 100%;
+    margin-top: auto;
+    padding-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .social-nav ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .social-nav a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    background-color: #b7a7bb;
+    border-radius: 0.4rem;
+    transition: background-color 0.2s ease;
+  }
+
+  .social-nav a:hover {
+    background-color: #407cdd;
+  }
+
+  .icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: block;
+  }
+
+  .icon svg {
+  width: 100%;
+  height: 100%;
+}
+  @media (max-width: 768px) {
+  .social-nav ul {
+    flex-direction: row;
+    justify-content: center;
+
+    
+  }
+  
+
+}
+@media(max-width:1600px){
+   .social-nav a {
+    width: 4vw;
+    height: 4vw;
+  }
+  .social-nav ul{
+    gap: 2vw;
+  }
+
+  svg.icon {
+    width: 2.5vw ;
+    height: 2.5vw ;
+  }
+
+  .icon svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+ 
+</style>
