@@ -21,6 +21,8 @@ export interface Props {
 }
 
 const { sections } = Astro.props;
+const base = import.meta.env.BASE_URL;
+
 ---
 
 <main class="portfolio-page">
@@ -29,7 +31,7 @@ const { sections } = Astro.props;
       <h4 class="section-title">{section.title}</h4>
       <div class="project-grid">
         {section.projects.map(project => (
-          <a href={project.link} class="project-card-link">
+          <a href={`${base}${project.link}`} class="project-card-link">
             <div class="project-card">
               <img src={project.image} alt={project.title} />
               <div class="project-content">
@@ -43,6 +45,7 @@ const { sections } = Astro.props;
     </section>
   ))}
 </main>
+
 
 <style>
 :root {
