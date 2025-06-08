@@ -42,7 +42,7 @@ const { title, caption, image } = Astro.props;
   background-image: var(--hero-img);
   background-size: cover;
   background-position: center;
-  filter: blur(40px);
+  filter: blur(10px);
   z-index: -1;
   opacity: 0.6;
 }
@@ -65,7 +65,7 @@ const { title, caption, image } = Astro.props;
 .hero-text {
   max-width: 800px;
   width: 100%;
-  color: white;
+  color: rgb(0, 0, 0);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,7 +80,7 @@ const { title, caption, image } = Astro.props;
   font-size: clamp(1rem, 2vw, 2rem);
   margin-top: 0.75rem;
   line-height: 1.4;
-  color: #f0f0f0;
+  color: #3b3b3b;
 }
 
 </style>

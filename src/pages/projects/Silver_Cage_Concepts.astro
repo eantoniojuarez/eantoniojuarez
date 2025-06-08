@@ -1,0 +1,145 @@
+---
+import Welcome from '../../components/Welcome.astro';
+import Layout from '../../layouts/Layout.astro';
+
+import '../../styles/global.css'
+import BaseLayout from '../../layouts/baseLayout.astro';
+import Title from '../../components/Title.astro';
+import WorkShowcase from '../../components/WorkShowcase.astro';
+
+import img1 from '../../assets/SilverCage/daelynSheetColor.png';
+import img2 from '../../assets/SilverCage/nicoSheetColor.png';
+import img3 from'../../assets/SilverCage/botSheetColor.png';
+import img4 from '../../assets/SilverCage/daelynSheetLines.png';
+import img5 from '../../assets/SilverCage/nicoSheetLines.png';
+import img6 from '../../assets/SilverCage/botSheetLines.png';
+import img7 from '../../assets/SilverCage/5final.png'
+import img8 from '../../assets/SilverCage/5flats.png'
+import img9 from '../../assets/SilverCage/5_3d.png'
+import img10 from '../../assets/SilverCage/5lines.png'
+
+const images = [
+    { 
+        src: img3.src, 
+        alt: "Concept art 1", 
+        caption: "", 
+        row: 1, 
+        size: "large", 
+        captionLocation: "center", 
+        fontSize: "", 
+        captionWidth: "", 
+        imageWidth: "", 
+        imgMobileWidth: "" 
+    }, { 
+        src: img1.src, 
+        alt: "Sketch study 2", 
+        caption: "",
+        row: 2, 
+        size: "large", 
+        captionLocation: "center", 
+        fontSize: ".58vw", 
+        captionWidth: "20vw", 
+        imageWidth: "", 
+        imgMobileWidth: "" 
+    }, { 
+        src: img2.src, 
+        alt: "Finished poster 3", 
+        caption: "", 
+        row: 3, 
+        size: "large", 
+        captionLocation: "center", 
+        fontSize: "", 
+        captionWidth: "", 
+        imageWidth: "", 
+        imgMobileWidth: ""  
+    }, {     
+        src: img4.src, 
+        alt: "Image 4", 
+        caption: "", 
+        row: 4, 
+        size: "small", 
+        captionLocation: "center", 
+        fontSize: ".58vw", 
+        captionWidth: "13vw", 
+        imageWidth: "", 
+        imgMobileWidth: "" 
+    }, { 
+        src: img5.src, 
+        alt: "Image 5", 
+        caption: "", 
+        row: 4, 
+        size: "medium", 
+        captionLocation: "above", 
+        fontSize: ".58vw", 
+        captionWidth: "",  
+        imageWidth: "", 
+        imgMobileWidth: "", 
+    }, { 
+        src: img6.src, 
+        alt: "Image 5", 
+        caption: "", 
+        row: 4, 
+        size: "medium", 
+        captionLocation: "center", 
+        fontSize: ".58vw", 
+        captionWidth: "",  
+        imageWidth: "", 
+        imgMobileWidth: "", 
+    },
+    { 
+        src: img7.src, 
+        alt: "", 
+        caption: "Lineart of the above three character sheets", 
+        row: 5, 
+        size: "medium", 
+        captionLocation: "above", 
+        fontSize: ".58vw", 
+        captionWidth: "",  
+        imageWidth: "", 
+        imgMobileWidth: "", 
+    }, {     
+        src: img8.src, 
+        alt: "Image 4", 
+        caption: "", 
+        row: 6, 
+        size: "small", 
+        captionLocation: "center", 
+        fontSize: ".58vw", 
+        captionWidth: "13vw", 
+        imageWidth: "", 
+        imgMobileWidth: "" 
+    }, { 
+        src: img9.src, 
+        alt: "Image 5", 
+        caption: "", 
+        row: 6, 
+        size: "medium", 
+        captionLocation: "above", 
+        fontSize: ".58vw", 
+        captionWidth: "",  
+        imageWidth: "", 
+        imgMobileWidth: "", 
+    }, { 
+        src: img10.src, 
+        alt: "Image 5", 
+        caption: "", 
+        row: 6, 
+        size: "medium", 
+        captionLocation: "center", 
+        fontSize: ".58vw", 
+        captionWidth: "",  
+        imageWidth: "", 
+        imgMobileWidth: "", 
+    },
+];
+---
+
+
+<BaseLayout>
+  <Fragment slot="sidebar">
+    
+    <!-- You can put nav links, social icons, etc. here -->
+  </Fragment>
+  <Title title="Silver Cage" caption="A sci-fi story about identity and survival" />
+  <WorkShowcase images={images} />
+</BaseLayout>

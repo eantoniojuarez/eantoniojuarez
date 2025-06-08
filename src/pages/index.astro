@@ -9,8 +9,13 @@ import Title from '../components/Title.astro';
 import CardPage from '../components/cardPage.astro';
 
 import image1 from '../assets/SilverCage/daelynSheetColor.png'
+import sfc from '../assets/SuperFoodChain/sfcCover.png'
+import gb from '../assets/GrubBug/gbCover.png'
 
-
+import openingCover from '../assets/CardCovers/openingCover.png'
+import actionCover from '../assets/CardCovers/actionCover.png'
+import otherCover from '../assets/CardCovers/otherCover.png'
+import coversCover from '../assets/CardCovers/coversCover.png'
 
 
 
@@ -20,7 +25,7 @@ const sections = [
     projects: [
       { 
         title: "Silver Cage - Concepts", 
-        image: "/concepts/botanical-tech.png", 
+        image: image1.src, 
         description: "Merging organic forms with mechanical shells.", 
         link:`projects/Silver_Cage_Concepts`,
       },
@@ -38,14 +43,14 @@ const sections = [
     projects: [
       { 
         title: "Super Food Chain!", 
-        image: "/games/super-food-chain.png", 
+        image: sfc.src, 
         description: "Snake-like game where each food segment has unique powers.", 
         link: `projects/Super_Food_Chain`,
       },
 
       { 
         title: "Grub Bug", 
-        image: "/games/mech-mayhem.png", 
+        image: gb.src, 
         description: "Isometric driving game where you evade cops and deliver food",
         link: `projects/Grub_Bug`,
       },
@@ -56,16 +61,11 @@ const sections = [
     projects: [
       { 
         title: "Silver Cage", 
-        image: image1.src, 
+        image: openingCover.src, 
         description: "A sci-fi story about identity and survival inside a walled city.", 
         link: `projects/Silver_Cage`,
       },
-      { 
-        title: "Other Sample Pages", 
-        image: image1.src, 
-        description: "Assorted Sample Pages", 
-        link: `projects/SamplePages`,
-      },
+
     ]
   },
 ];

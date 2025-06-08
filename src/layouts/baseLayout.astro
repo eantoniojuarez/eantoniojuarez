@@ -10,11 +10,16 @@ import MiniHeader from "../components/MiniHeader.astro";
 </head>
 
 <div class="layout">
+  <!-- Hamburger and mobile sidebar -->
+  <MiniHeader />
+
+  <!-- Desktop sidebar -->
   <aside class="sidebar" id="dynamic-sidebar">
     <SidebarTitles />
     <Socials />
   </aside>
 
+  <!-- Main content -->
   <main class="content" id="main-content">
     <slot />
   </main>
@@ -47,42 +52,18 @@ import MiniHeader from "../components/MiniHeader.astro";
   box-sizing: border-box;
   transition: margin-left 0.3s ease;
 }
-  .sidebar-content {
-  flex-grow: 1; /* Pushes the footer down */
-}
-  .sidebar.desktop-sidebar{
-    display: flex;
+
+/* Hide desktop sidebar on mobile */
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
   }
-.social-header {
-  padding-bottom: 2rem; /* Adjust bottom spacing */
-  display: flex;
-  justify-content: center;
-}
 
-  @media (max-width: 768px) {
-    .layout {
-      flex-direction: column;
-    }
-
-    .sidebar {
-      position: relative;
-      width: 100%;
-      height: auto;
-      flex-direction: row;
-      justify-content: space-between;
-    }
-
-    .content {
-      margin-left: 0;
-      width: 100%;
-    }
-   
-    
-    .sidebar.desktop-sidebar{
-      display: none;
-    }
-    
+  .content {
+    margin-left: 0;
+    width: 100%;
   }
+}
 </style>
 <script type="module">
   function adjustContentMargin() {

@@ -1,0 +1,113 @@
+---
+import Welcome from '../../components/Welcome.astro';
+import Layout from '../../layouts/Layout.astro';
+
+import '../../styles/global.css'
+import BaseLayout from '../../layouts/baseLayout.astro';
+import Title from '../../components/Title.astro';
+import WorkShowcase from '../../components/WorkShowcase.astro';
+
+import img1 from '../../assets/GrubBug/gbCoverTextless.png';
+import img2 from '../../assets/GrubBug/gbCover.png';
+import img3 from'../../assets/GrubBug/gbBuildingConcepts.png';
+import img4 from '../../assets/GrubBug/gbBuildings.png';
+import img5 from '../../assets/GrubBug/gbMapConcepts.png';
+import img6 from '../../assets/GrubBug/gbMap.png';
+import img7 from '../../assets/GrubBug/gbOther.png';
+
+
+const images = [
+    { 
+        src: img2.src, 
+        alt: "Grub Bug Promotional Poster", 
+        caption: `Grub Bug is a 2D isometric driving game I worked on with the Development in Games Association at Cornell throughout the '24-'25 school year. \n \n \n
+        \n
+        In this project I had the role of environment/background artist, however because it was a small team, I helped out on other assets, including UI and promotional material 
+        `,
+        row: 1, 
+        size: "large", 
+        captionLocation: "right", 
+        fontSize: ".75rem", 
+        captionWidth: "20vw", 
+        imageWidth: "50vw", 
+        imgMobileWidth: "" 
+    }, { 
+        src: img3.src, 
+        alt: "Sketch study 2", 
+        caption: "",
+        row: 2, 
+        size: "large", 
+        captionLocation: "center", 
+        fontSize: ".58vw", 
+        captionWidth: "20vw", 
+        imageWidth: "", 
+        imgMobileWidth: "" 
+    }, { 
+        src: img4.src, 
+        alt: "Finished poster 3", 
+        caption: "", 
+        row: 3, 
+        size: "large", 
+        captionLocation: "center", 
+        fontSize: "", 
+        captionWidth: "", 
+        imageWidth: "", 
+        imgMobileWidth: ""  
+    }, {     
+        src: img7.src, 
+        alt: "Image 4", 
+        caption: "EEVEE Blender Mockup Render", 
+        row: 4, 
+        size: "small", 
+        captionLocation: "center", 
+        fontSize: "1rem", 
+        captionWidth: "", 
+        imageWidth: "", 
+        imgMobileWidth: "" 
+    }, { 
+        src: img5.src, 
+        alt: "Image 5", 
+        caption: "", 
+        row: 5, 
+        size: "medium", 
+        captionLocation: "center", 
+        fontSize: ".58vw", 
+        captionWidth: "",  
+        imageWidth: "", 
+        imgMobileWidth: "60vw", 
+    }, { 
+        src: img6.src, 
+        alt: "Image 5", 
+        caption: "Final Map UI Design", 
+        row: 6, 
+        size: "medium", 
+        captionLocation: "center", 
+        fontSize: "1rem", 
+        captionWidth: "",  
+        imageWidth: "", 
+        imgMobileWidth: "60vw", 
+    },
+    { 
+        src: "", 
+        alt: "", 
+        caption: "", 
+        row: 7, 
+        size: "medium", 
+        captionLocation: "center", 
+        fontSize: ".58vw", 
+        captionWidth: "",  
+        imageWidth: "", 
+        imgMobileWidth: "60vw", 
+    }
+];
+---
+
+
+<BaseLayout>
+  <Fragment slot="sidebar">
+    
+    <!-- You can put nav links, social icons, etc. here -->
+  </Fragment>
+  <Title title="Grub Bug" caption="sell street food while evading cops to feed your family!" image={img1.src}/>
+  <WorkShowcase images={images} />
+</BaseLayout>

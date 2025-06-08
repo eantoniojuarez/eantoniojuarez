@@ -34,13 +34,21 @@ const { images } = Astro.props;
     <div class="image-row">
       {images.filter(img => img.row === row).map(image => (
         <div class={`image-block ${image.captionLocation}`}>
-          
+          {image.caption && image.captionLocation === 'above' && (
+            <div class="caption center" style={`font-size: clamp(0.6rem, ${image.fontSize || '0.55vw'}, 1.25rem); width: ${image.captionWidth || '100%'}`}>
+              {image.caption && image.caption
+  .split('\n\n')
+  .map(p => <p>{p.split('\n').map((line, i) => <>{line}{i < p.split('\n').length - 1 && <br />}</>)}</p>)}
+            </div>
+          )}
           {image.caption && image.captionLocation === 'left' && (
             <div
               class="caption long"
               style={`font-size: clamp(0.6rem, ${image.fontSize || '0.55vw'}, 1.25rem); width: ${image.captionWidth || '20vw'}`}
             >
-              {image.caption.split('\n\n').map(para => <p>{para}</p>)}
+              {image.caption && image.caption
+  .split('\n\n')
+  .map(p => <p>{p.split('\n').map((line, i) => <>{line}{i < p.split('\n').length - 1 && <br />}</>)}</p>)}
             </div>
           )}
 
@@ -55,13 +63,17 @@ const { images } = Astro.props;
               class="caption long"
               style={`font-size: clamp(0.6rem, ${image.fontSize || '0.55vw'}, 1.25rem); width: ${image.captionWidth || '20vw'}`}
             >
-              {image.caption.split('\n\n').map(para => <p>{para}</p>)}
+              {image.caption && image.caption
+  .split('\n\n')
+  .map(p => <p>{p.split('\n').map((line, i) => <>{line}{i < p.split('\n').length - 1 && <br />}</>)}</p>)}
             </div>
           )}
 
           {image.caption && image.captionLocation === 'center' && (
             <div class="caption center" style={`font-size: clamp(0.6rem, ${image.fontSize || '0.55vw'}, 1.25rem); width: ${image.captionWidth || '100%'}`}>
-              {image.caption.split('\n\n').map(para => <p>{para}</p>)}
+              {image.caption && image.caption
+  .split('\n\n')
+  .map(p => <p>{p.split('\n').map((line, i) => <>{line}{i < p.split('\n').length - 1 && <br />}</>)}</p>)}
             </div>
           )}
         </div>
@@ -111,10 +123,6 @@ box-sizing: border-box;
   justify-content: center;
 }
 
-.image-block.right {
-  flex-direction: row-reverse;
-}
-
 .image-wrapper {
   background: #0f172a;
   border: 1px solid #334155;
@@ -152,6 +160,7 @@ box-sizing: border-box;
 .caption.long {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   height: 100%;
   overflow-y: auto;
   max-height: var(--img-height, 60vh);        /* Constrain to row height */
