@@ -42,26 +42,31 @@ import MiniHeader from "../components/MiniHeader.astro";
   color: white;
   padding: 0.2rem;
   box-sizing: border-box;
-  display: flex;
+  display: none;
   flex-direction: column;
   z-index: 10;
 }
 
 .content {
-  padding: .2rem;
-  box-sizing: border-box;
-  transition: margin-left 0.3s ease;
+    margin-left: 0;
+    width: 100%;
 }
 
 /* Hide desktop sidebar on mobile */
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .sidebar {
-    display: none;
+    display: flex;
   }
 
   .content {
-    margin-left: 0;
-    width: 100%;
+  
+  padding: .2rem;
+  box-sizing: border-box;
+  margin-left: max-content;
+  width: auto;
+  transition: margin-left 0.3s ease;
+
+
   }
 }
 </style>
@@ -72,19 +77,22 @@ import MiniHeader from "../components/MiniHeader.astro";
 
     if (!sidebar || !content) return;
 
-    const isMobile = window.innerWidth <= 768;
+    const isMobile = window.innerWidth < 768;
 
     if (isMobile) {
-      content.style.marginLeft = "0";
       sidebar.style.position = "relative";
-      sidebar.style.width = "100%";
       sidebar.style.height = "auto";
+      sidebar.style.width = "100%";
+      content.style.marginLeft = "0";
+      content.style.width = "100%";
     } else {
       sidebar.style.position = "fixed";
       sidebar.style.height = "100vh";
       sidebar.style.width = "max-content";
+
       const sidebarWidth = sidebar.offsetWidth;
       content.style.marginLeft = `${sidebarWidth}px`;
+      content.style.width = `calc(100% - ${sidebarWidth}px)`;
     }
   }
 
