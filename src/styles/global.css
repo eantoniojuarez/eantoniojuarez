@@ -6,6 +6,10 @@
   font-display: swap;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Jura&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap');
+
+
 :root{
   --font-size-h1: 8rem;
   --font-size-h2: 6rem;
@@ -96,6 +100,8 @@ html, body {
   padding: 0;
   box-sizing: border-box;
   font-family: 'Jura', sans-serif;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 @media (max-width: 768px) {

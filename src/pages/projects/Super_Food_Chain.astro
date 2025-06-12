@@ -6,95 +6,159 @@ import '../../styles/global.css'
 import BaseLayout from '../../layouts/baseLayout.astro';
 import Title from '../../components/Title.astro';
 import WorkShowcase from '../../components/WorkShowcase.astro';
+import ExternalLink from '../../components/externalLink.astro'
+import Youtube from '../../components/ytembed.astro'
 
 import img1 from '../../assets/SuperFoodChain/sfcSquareCover.png';
+import squareCover from '../../assets/SuperFoodChain/sfcSquareCover1.png';
 import img2 from '../../assets/SuperFoodChain/sfcCover.png';
 import img3 from'../../assets/SuperFoodChain/sfcConcepts.png';
-import img4 from '../../assets/SuperFoodChain/sfcFruits.png';
-import img5 from '../../assets/SuperFoodChain/sfcChefConcept.png';
-import img6 from '../../assets/SuperFoodChain/sfcEnemy.png';
-
+import img4 from '../../assets/SuperFoodChain/all6.gif';
+import chefConcepts from '../../assets/SuperFoodChain/chefConcepts.png';
+import chefIdle from '../../assets/SuperFoodChain/chefIdle.gif'
+import backgroundProcess from '../../assets/SuperFoodChain/backgroundProcess.png'
+import img6 from '../../assets/SuperFoodChain/allFruits.png';
+import coverWorkflow from '../../assets/SuperFoodChain/sfcCoverWorkflow.png'
+import rats1 from '../../assets/SuperFoodChain/1rats.gif'
+import rats2 from '../../assets/SuperFoodChain/2rats.gif'
 
 const images = [
     { 
-        src: img1.src, 
+        src: squareCover.src, 
         alt: "Concept art 1", 
-        caption: "", 
+        caption: `Super Food Chain! is a snake-like game where you control a chain of various produce in order to fight off waves of bosses and their minions.
+        
+        The game was produced in the Spring 2025 semester by a team of 5 programmers and 3 designers for Cornell University's CIS/INFO 3152 Intro to Game Development class. 
+        
+        I worked on all the main character animations and assets, as well as promotional stuff such as the banner/title screen (below), game icon/cover (left), and stickers handed out during our in-person final showcase. 
+        I also had input on stuff such as level design, and player/boss interactions. 
+        
+        Throughout the project one main concern was handling the workload of drawing all the assets fast while also retaining `, 
         row: 1, 
         size: "large", 
-        captionLocation: "center", 
-        fontSize: "", 
-        captionWidth: "", 
-        imageWidth: "", 
+        captionLocation: "right", 
+        fontSize: "1.2rem", 
+        captionWidth: "30vw", 
+        imageWidth: "30vw", 
         imgMobileWidth: "" 
     }, { 
         src: img2.src, 
         alt: "Sketch study 2", 
-        caption: "",
+        caption: `I drew various sketches to present to the rest of the team so we can all be on the same page of the project's direction
+        The bottom right shows an alternative cover which displayed all 5 playable characters (RIP to the blue raspberry)`,
         row: 2, 
         size: "large", 
         captionLocation: "center", 
-        fontSize: ".58vw", 
-        captionWidth: "20vw", 
+        fontSize: "1rem", 
+        captionWidth: "", 
+        imageWidth: "", 
+        imgMobileWidth: "" 
+    }, { 
+        src: coverWorkflow.src, 
+        alt: "Sketch study 2", 
+        caption: "Playable Character Concept Art",
+        row: 3, 
+        size: "large", 
+        captionLocation: "center", 
+        fontSize: "2rem", 
+        captionWidth: "", 
         imageWidth: "", 
         imgMobileWidth: "" 
     }, { 
         src: img3.src, 
         alt: "Finished poster 3", 
-        caption: "hi", 
-        row: 3, 
+        caption: `During very early stages of development, I drafted some concepts for the characters to narrow down the exact food theme for the game.
+
+        Based on input from the other designers, the designs were further simplified in order to facilitate a cohesive style between artists, as seen below.`, 
+        row: 4, 
         size: "large", 
         captionLocation: "center", 
-        fontSize: "", 
+        fontSize: "1rem", 
         captionWidth: "", 
         imageWidth: "", 
         imgMobileWidth: ""  
-    }, {     
-        src: img4.src, 
-        alt: "Image 4", 
-        caption: "blah\n\nblah\nblah", 
-        row: 4, 
-        size: "small", 
-        captionLocation: "center", 
-        fontSize: ".58vw", 
-        captionWidth: "13vw", 
-        imageWidth: "", 
-        imgMobileWidth: "40vw" 
-    }, { 
-        src: img5.src, 
-        alt: "Image 5", 
-        caption: "blah\n\nblah\nblah", 
-        row: 4, 
-        size: "medium", 
-        captionLocation: "center", 
-        fontSize: ".58vw", 
-        captionWidth: "",  
-        imageWidth: "", 
-        imgMobileWidth: "60vw", 
-    }, { 
+    },{ 
         src: img6.src, 
         alt: "Image 5", 
-        caption: "blah\n\nblah\nblah", 
-        row: 4, 
-        size: "medium", 
-        captionLocation: "center", 
-        fontSize: ".58vw", 
-        captionWidth: "",  
-        imageWidth: "", 
-        imgMobileWidth: "60vw", 
-    },
-    { 
-        src: "", 
-        alt: "", 
-        caption: "blah\n\nblah\nblah", 
+        caption: "", 
         row: 5, 
         size: "medium", 
         captionLocation: "center", 
         fontSize: ".58vw", 
         captionWidth: "",  
+        imageWidth: "50vw", 
+        imgMobileWidth: "60vw", 
+    }, {     
+        src: img4.src, 
+        alt: "Image 4", 
+        caption: `Final Playable Characters:
+        
+        Strawberry, Durian, Blue Raspberry, Garlic, Avocado`, 
+        row: 5, 
+        size: "small", 
+        captionLocation: "right", 
+        fontSize: "1.5rem", 
+        captionWidth: "13vw", 
+        imageWidth: "7vw", 
+        imgMobileWidth: "10vw" 
+    },
+    { 
+        src: rats1.src, 
+        alt: "", 
+        caption: `Rat idles. The first column only serves as world-building and introductions to the two rats before the mischevious fruits wake them up!`, 
+        row: 6, 
+        size: "medium", 
+        captionLocation: "center", 
+        fontSize: "1rem", 
+        captionWidth: "40vw",  
         imageWidth: "", 
         imgMobileWidth: "60vw", 
-    }
+    }, { 
+        src: rats2.src, 
+        alt: "Image 5", 
+        caption: "Rat movement animations. Due to the 2D axonometric perspective, two seperate animations were used for movement along width/height.", 
+        row: 6, 
+        size: "medium", 
+        captionLocation: "center", 
+        fontSize: "1rem", 
+        captionWidth: "40vw",  
+        imageWidth: "", 
+        imgMobileWidth: "60vw", 
+    },
+     { 
+        src: chefConcepts.src, 
+        alt: "Image 5", 
+        caption: "", 
+        row: 7, 
+        size: "medium", 
+        captionLocation: "center", 
+        fontSize: "1rem", 
+        captionWidth: "40vw",  
+        imageWidth: "", 
+        imgMobileWidth: "60vw", 
+    },      { 
+        src: chefIdle.src, 
+        alt: "Image 5", 
+        caption: "", 
+        row: 7, 
+        size: "medium", 
+        captionLocation: "center", 
+        fontSize: "1rem", 
+        captionWidth: "40vw",  
+        imageWidth: "", 
+        imgMobileWidth: "60vw", 
+    },{ 
+        src: backgroundProcess.src, 
+        alt: "Image 5", 
+        caption: "", 
+        row: 8, 
+        size: "medium", 
+        captionLocation: "center", 
+        fontSize: "1rem", 
+        captionWidth: "",  
+        imageWidth: "", 
+        imgMobileWidth: "", 
+    }, 
 ];
 ---
 
@@ -106,4 +170,13 @@ const images = [
   </Fragment>
   <Title title="Super Food Chain!" caption="better than snake" image={img1.src}/>
   <WorkShowcase images={images} />
+  <Youtube videoId="QMTxXzG6YUU" title="Final Level Playthrough" />
+  
+  <ExternalLink 
+  link="https://example.com" 
+  text="Download now"
+  icon= {img1.src}
+  alt="External site"
+  
+/>
 </BaseLayout>

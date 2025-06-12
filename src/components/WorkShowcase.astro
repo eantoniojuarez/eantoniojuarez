@@ -35,20 +35,16 @@ const { images } = Astro.props;
       {images.filter(img => img.row === row).map(image => (
         <div class={`image-block ${image.captionLocation}`}>
           {image.caption && image.captionLocation === 'above' && (
-            <div class="caption center" style={`font-size: clamp(0.6rem, ${image.fontSize || '0.55vw'}, 1.25rem); width: ${image.captionWidth || '100%'}`}>
-              {image.caption && image.caption
-  .split('\n\n')
-  .map(p => <p>{p.split('\n').map((line, i) => <>{line}{i < p.split('\n').length - 1 && <br />}</>)}</p>)}
+            <div class="caption center" style={`font-size: clamp(0.6rem, ${image.fontSize || '0.55vw'}, 3rem); width: ${image.captionWidth || '100%'}`}>
+              {image.caption && image.caption.split('\n\n').map(p => <p>{p.split('\n').map((line, i) => <>{line}{i < p.split('\n').length - 1 && <br />}</>)}</p>)}
             </div>
           )}
           {image.caption && image.captionLocation === 'left' && (
             <div
               class="caption long"
-              style={`font-size: clamp(0.6rem, ${image.fontSize || '0.55vw'}, 1.25rem); width: ${image.captionWidth || '20vw'}`}
+              style={`font-size: clamp(0.6rem, ${image.fontSize || '0.55vw'}, 1.75rem); width: ${image.captionWidth || '20vw'}`}
             >
-              {image.caption && image.caption
-  .split('\n\n')
-  .map(p => <p>{p.split('\n').map((line, i) => <>{line}{i < p.split('\n').length - 1 && <br />}</>)}</p>)}
+              {image.caption && image.caption.split('\n\n').map(p => <p>{p.split('\n').map((line, i) => <>{line}{i < p.split('\n').length - 1 && <br />}</>)}</p>)}
             </div>
           )}
 
@@ -61,19 +57,15 @@ const { images } = Astro.props;
           {image.caption && image.captionLocation === 'right' && (
             <div
               class="caption long"
-              style={`font-size: clamp(0.6rem, ${image.fontSize || '0.55vw'}, 1.25rem); width: ${image.captionWidth || '20vw'}`}
+              style={`font-size: clamp(0.6rem, ${image.fontSize || '0.55vw'}, 1.75rem); width: ${image.captionWidth || '20vw'}`}
             >
-              {image.caption && image.caption
-  .split('\n\n')
-  .map(p => <p>{p.split('\n').map((line, i) => <>{line}{i < p.split('\n').length - 1 && <br />}</>)}</p>)}
+              {image.caption && image.caption.split('\n\n').map(p => <p>{p.split('\n').map((line, i) => <>{line}{i < p.split('\n').length - 1 && <br />}</>)}</p>)}
             </div>
           )}
 
           {image.caption && image.captionLocation === 'center' && (
-            <div class="caption center" style={`font-size: clamp(0.6rem, ${image.fontSize || '0.55vw'}, 1.25rem); width: ${image.captionWidth || '100%'}`}>
-              {image.caption && image.caption
-  .split('\n\n')
-  .map(p => <p>{p.split('\n').map((line, i) => <>{line}{i < p.split('\n').length - 1 && <br />}</>)}</p>)}
+            <div class="caption center" style={`font-size: clamp(0.6rem, ${image.fontSize || '0.55vw'}, 3rem); width: ${image.captionWidth || '100%'}`}>
+              {image.caption && image.caption.split('\n\n').map(p => <p>{p.split('\n').map((line, i) => <>{line}{i < p.split('\n').length - 1 && <br />}</>)}</p>)}
             </div>
           )}
         </div>
@@ -101,6 +93,7 @@ box-sizing: border-box;
   align-items: center;
   width: 100%;
   gap: 0.25vw;
+  flex: fit-content;
 
 }
 
@@ -232,7 +225,7 @@ box-sizing: border-box;
 
 <script>
 function syncImageHeights() {
-  document.querySelectorAll('.image-block.left, .image-block.right').forEach(block => {
+  document.querySelectorAll('.image-block').forEach(block => {
     const img = block.querySelector('img') as HTMLElement | null;
     const caption = block.querySelector('.caption.long') as HTMLElement | null;
     let body = window.innerWidth;

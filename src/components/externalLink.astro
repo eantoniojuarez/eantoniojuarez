@@ -1,0 +1,61 @@
+---
+export interface Props {
+  link: string;
+  text: string;
+  icon?: string;     // Optional icon path (SVG or PNG)
+  alt?: string;      // Optional alt text for the icon
+}
+
+const { link, text, icon, alt } = Astro.props;
+---
+<b class = "body">
+    <a href={link} target="_blank" rel="noopener noreferrer" class="external-link">
+    {icon && <img src={icon} alt={alt || "Link icon"} class="link-icon" />}
+    <span class="link-text">{text}</span>
+    <span class="link-arrow">›</span>
+    </a>
+</b>
+
+<style>
+.body{
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+    align-items: center;
+}
+.external-link {
+  gap: 0.5rem;
+  padding: 2rem 2rem;
+  background-color: #1e293b;
+  color: white;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  font-size: clamp(.5vw, 2rem, 5vw);
+  font-weight: 500;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  flex-direction: row;
+  display: inline-flex;
+  align-items: center;
+}
+
+.external-link:hover {
+  transform: translateY(-2px);
+  background-color: #334155;
+}
+
+.link-icon {
+  width: 4rem;
+  height: 4rem;
+}
+
+.link-text {
+  white-space: nowrap;
+}
+
+.link-arrow {
+  font-size: 1.25rem;
+  line-height: 1;
+  margin-left: auto;
+}
+</style>

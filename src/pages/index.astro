@@ -4,13 +4,14 @@ import Layout from '../layouts/Layout.astro';
 
 import BaseLayout from '../layouts/baseLayout.astro';
 import Title from '../components/Title.astro';
+import Footer from '../components/footer.astro';
 
 
 import CardPage from '../components/cardPage.astro';
 
-import image1 from '../assets/SilverCage/daelynSheetColor.png'
+import image1 from '../assets/SilverCage/daelynSheetColor.webp'
 import sfc from '../assets/SuperFoodChain/sfcCover.png'
-import gb from '../assets/GrubBug/gbCover.png'
+import gb from '../assets/GrubBug/gbCover.webp'
 
 import openingCover from '../assets/CardCovers/openingCover.png'
 import actionCover from '../assets/CardCovers/actionCover.png'
@@ -63,7 +64,7 @@ const sections = [
         title: "Silver Cage", 
         image: openingCover.src, 
         description: "A sci-fi story about identity and survival inside a walled city.", 
-        link: `projects/Silver_Cage`,
+        link: `projects/SilverCage/Opening`,
       },
 
     ]
@@ -77,3 +78,4 @@ const sections = [
 
   <Title title="Eduardo Antonio" caption="um uhh um" />
   <CardPage sections={sections} />
+  <Footer />

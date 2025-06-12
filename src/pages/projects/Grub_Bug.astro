@@ -7,14 +7,18 @@ import BaseLayout from '../../layouts/baseLayout.astro';
 import Title from '../../components/Title.astro';
 import WorkShowcase from '../../components/WorkShowcase.astro';
 
-import img1 from '../../assets/GrubBug/gbCoverTextless.png';
-import img2 from '../../assets/GrubBug/gbCover.png';
-import img3 from'../../assets/GrubBug/gbBuildingConcepts.png';
-import img4 from '../../assets/GrubBug/gbBuildings.png';
-import img5 from '../../assets/GrubBug/gbMapConcepts.png';
-import img6 from '../../assets/GrubBug/gbMap.png';
-import img7 from '../../assets/GrubBug/gbOther.png';
-
+import img1 from '../../assets/GrubBug/gbCoverTextless.webp';
+import img2 from '../../assets/GrubBug/gbCover.webp';
+import img3 from'../../assets/GrubBug/gbBuildingConcepts.webp';
+import img4 from '../../assets/GrubBug/gbBuildings.webp';
+import img5 from '../../assets/GrubBug/gbMapConcepts.webp';
+import img6 from '../../assets/GrubBug/gbMap.webp';
+import img7 from '../../assets/GrubBug/gbOther.webp';
+import img8 from '../../assets/GrubBug/oilConcepts.png';
+import img9 from '../../assets/GrubBug/combinedOIL.gif';
+import img10 from '../../assets/GrubBug/tileSet.png';
+import img11 from '../../assets/GrubBug/gbProps.png';
+import img12 from '../../assets/GrubBug/gbViewport.png'
 
 const images = [
     { 
@@ -27,54 +31,61 @@ const images = [
         row: 1, 
         size: "large", 
         captionLocation: "right", 
-        fontSize: ".75rem", 
-        captionWidth: "20vw", 
-        imageWidth: "50vw", 
+        fontSize: "1rem", 
+        captionWidth: "35vw", 
+        imageWidth: "45vw", 
         imgMobileWidth: "" 
     }, { 
         src: img3.src, 
         alt: "Sketch study 2", 
-        caption: "",
+        caption: "Background/Environment Design Process",
         row: 2, 
         size: "large", 
-        captionLocation: "center", 
-        fontSize: ".58vw", 
-        captionWidth: "20vw", 
+        captionLocation: "above", 
+        fontSize: "3rem", 
+        captionWidth: "", 
         imageWidth: "", 
         imgMobileWidth: "" 
     }, { 
         src: img4.src, 
         alt: "Finished poster 3", 
-        caption: "", 
+        caption: `The original mood of the game was going to be grungier, almost a little dystopian? The idea of a father having to evade the cops for simply selling food without a license just to feed his children seemed to invoke ideas of a run down, corrupt city. 
+
+        As we progressed through building the game, we realized it could become a bit difficult to see the characters, especially as the game was being designed to be fast paced and hectic. We pivoted to making the game brighter and having it lean into the chaos of the gameplay. 
+        
+        We kept the original story for the game, and the new environment keeps the concept from taking itself too seriously and motivates the player to play as best they can to help out the more cheerful main character.`, 
         row: 3, 
         size: "large", 
-        captionLocation: "center", 
-        fontSize: "", 
+        captionLocation: "above", 
+        fontSize: "1rem", 
         captionWidth: "", 
         imageWidth: "", 
         imgMobileWidth: ""  
     }, {     
         src: img7.src, 
         alt: "Image 4", 
-        caption: "EEVEE Blender Mockup Render", 
+        caption: `EEVEE Blender Mockup Render\n\n
+        \n\n\nMap UI Design Proces`, 
         row: 4, 
         size: "small", 
         captionLocation: "center", 
-        fontSize: "1rem", 
+        fontSize: "3rem", 
         captionWidth: "", 
         imageWidth: "", 
         imgMobileWidth: "" 
     }, { 
         src: img5.src, 
         alt: "Image 5", 
-        caption: "", 
+        caption: `When given the task to draw a map of the bug world I drew inspiration from my home city in New York.\
+        \nI decided to bring out the bug motif even more this time, and as we had not yet explored butterflies as characters, I wanted to bring that imagery into the game too.
+        \n\nIn the end I settled with the design seen below and I colored it as if it were an old topographic map`, 
         row: 5, 
         size: "medium", 
         captionLocation: "center", 
-        fontSize: ".58vw", 
+        fontSize: "1rem", 
         captionWidth: "",  
         imageWidth: "", 
-        imgMobileWidth: "60vw", 
+        imgMobileWidth: "", 
     }, { 
         src: img6.src, 
         alt: "Image 5", 
@@ -82,23 +93,58 @@ const images = [
         row: 6, 
         size: "medium", 
         captionLocation: "center", 
-        fontSize: "1rem", 
+        fontSize: "2rem", 
         captionWidth: "",  
         imageWidth: "", 
-        imgMobileWidth: "60vw", 
+        imgMobileWidth: "", 
     },
     { 
-        src: "", 
+        src: img8.src, 
         alt: "", 
-        caption: "", 
+        caption: "CONCEPTS FOR OIL ASSET", 
+        row: 7, 
+        size: "medium", 
+        captionLocation: "above", 
+        fontSize: "1.2rem", 
+        captionWidth: "",  
+        imageWidth: "40vw", 
+        imgMobileWidth: "", 
+    },
+    { 
+        src: img9.src, 
+        alt: "", 
+        caption: "Throughout the game, Cookroach uses this fuel to either speed away from the cops or cook the food", 
         row: 7, 
         size: "medium", 
         captionLocation: "center", 
-        fontSize: ".58vw", 
+        fontSize: ".8rem", 
+        captionWidth: "16vw",  
+        imageWidth: "13vw", 
+        imgMobileWidth: "", 
+    },    { 
+        src: img11.src, 
+        alt: "", 
+        caption: "OTHER PROPS", 
+        row: 7, 
+        size: "medium", 
+        captionLocation: "center", 
+        fontSize: "1rem", 
         captionWidth: "",  
         imageWidth: "", 
-        imgMobileWidth: "60vw", 
-    }
+        imgMobileWidth: "", 
+    },{ 
+        src: img12.src, 
+        alt: "", 
+        caption: `The game used a mix of 2D and 3D assets in order to cut down on required computer resources and simplify the art implementation for the team.\n
+        Small obstacles/props were hand-drawn in isometric perspective. The buildings used to shape the roads used the 3D models I made, while pre-rendered building chunks were placed along the level border and billboarded towards the camera like the smaller props`, 
+        row: 8, 
+        size: "medium", 
+        captionLocation: "center", 
+        fontSize: "1.2rem", 
+        captionWidth: "60vw",  
+        imageWidth: "", 
+        imgMobileWidth: "", 
+    },
 ];
 ---
 

@@ -20,7 +20,8 @@ const { title, caption, image } = Astro.props;
 </div>
 
 <style>
-
+@import url('https://fonts.googleapis.com/css2?family=Jura&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap');
 :root {
   --hero-min-height: 80vh;
   --hero-bg: rgba(0, 0, 255, 0.6); /* fallback solid color */
@@ -74,6 +75,8 @@ const { title, caption, image } = Astro.props;
 .hero-title {
   font-size: clamp(2rem, 5vw, 5rem);
   margin: 0;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
 }
 
 .hero-caption {
@@ -81,6 +84,7 @@ const { title, caption, image } = Astro.props;
   margin-top: 0.75rem;
   line-height: 1.4;
   color: #3b3b3b;
+  font-family: "Jura", sans-serif;
 }
 
 </style>

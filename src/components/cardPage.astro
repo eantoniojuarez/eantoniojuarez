@@ -62,11 +62,11 @@ const base = import.meta.env.BASE_URL.endsWith('/')
 }
 
 .portfolio-page {
-  padding: 2rem;
+  padding: 0rem;
   background: #fafafa;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 0rem;
 }
 
 .section-title {
@@ -108,8 +108,8 @@ const base = import.meta.env.BASE_URL.endsWith('/')
   color: inherit;
   display: block;
   flex: 1 1 calc(33.333% - 5rem);
-
-  max-width: 50vw;
+  flex-shrink: 1;
+  max-width: clamp(2rem, 50vw, 70rem);
 
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }

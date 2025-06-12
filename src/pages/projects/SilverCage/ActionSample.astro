@@ -1,0 +1,81 @@
+---
+
+import '../../../styles/global.css'
+import BaseLayout from '../../../layouts/baseLayout.astro';
+import Title from '../../../components/Title.astro';
+import WorkShowcase from '../../../components/WorkShowcase.astro';
+
+import img1 from '../../../assets/ComicPages/SilverCage/3_01.webp';
+import img2 from '../../../assets/ComicPages/SilverCage/3_02.webp';
+import CardPage from '../../../components/cardPage.astro';
+
+import openingCover from '../../../assets/CardCovers/openingCover.png'
+import actionCover from '../../../assets/CardCovers/actionCover.png'
+import otherCover from '../../../assets/CardCovers/otherCover.png'
+import coversCover from '../../../assets/CardCovers/coversCover.png'
+
+const images = [
+    { 
+        src: img1.src, 
+        alt: "Page 1", 
+        caption: "Sample Action Sequence", 
+        row: 1, 
+        size: "large", 
+        captionLocation: "above", 
+        fontSize: "3rem", 
+        captionWidth: "", 
+        imageWidth: "", 
+        imgMobileWidth: "" 
+    }, { 
+        src: img2.src, 
+        alt: "Page 2", 
+        caption: "",
+        row: 2, 
+        size: "large", 
+        captionLocation: "center", 
+        fontSize: "", 
+        captionWidth: "", 
+        imageWidth: "", 
+        imgMobileWidth: "" 
+    }
+];
+
+
+const sections = [
+ {
+    title: "Sequences",
+    projects: [
+      { 
+        title: "Silver Cage - Opening", 
+        image: openingCover.src, 
+        description: "Merging organic forms with mechanical shells.", 
+        link:`projects/SilverCage/Opening`,
+      },
+      { 
+        title: "Silver Cage - Sample Sequence 2", 
+        image: otherCover.src, 
+        description: "Moodboards and figures from a future metropolis.",
+        link: `projects/SilverCage/Sample2`,
+      },
+      { 
+        title: "Cover Samples", 
+        image: coversCover.src, 
+        description: "Moodboards and figures from a future metropolis.",
+        link: `projects/SilverCage/Covers`,
+      },
+
+    ]
+  },
+]
+---
+
+
+<BaseLayout>
+  <Fragment slot="sidebar">
+    
+    <!-- You can put nav links, social icons, etc. here -->
+  </Fragment>
+  <Title title="Silver Cage" caption="Comic Book Page Sequences" image={img1.src}/>
+  <CardPage sections={sections}/>
+  <WorkShowcase images={images} />
+</BaseLayout>

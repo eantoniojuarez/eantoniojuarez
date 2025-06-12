@@ -26,12 +26,13 @@ const base = import.meta.env.BASE_URL.endsWith('/')
         <a href=`${base}` class="nav-title-link">
             <h2 class="nav-title">VIDEO GAME ART</h2>
         </a>
-        <a href=`${base}projects/Grub_Bug` class="nav-caption-link">
-            <h3 class="nav-caption">GRUB BUG</h3>
-        </a>
         <a href=`${base}projects/Super_Food_Chain` class="nav-caption-link">
             <h3 class="nav-caption">SUPER FOOD CHAIN</h3>
         </a>
+        <a href=`${base}projects/Grub_Bug` class="nav-caption-link">
+            <h3 class="nav-caption">GRUB BUG</h3>
+        </a>
+
     </div>
 
     <hr class="glow-divider" />
@@ -40,7 +41,7 @@ const base = import.meta.env.BASE_URL.endsWith('/')
         <a href=`${base}` class="nav-title-link">
             <h2 class="nav-title">SEQUENTIAL ART</h2>
         </a>
-        <a href=`${base}projects/Silver_Cage` class="nav-caption-link">
+        <a href=`${base}projects/SilverCage/Opening` class="nav-caption-link">
             <h3 class="nav-caption">SILVER CAGE</h3>
         </a>
         <a href=`${base}projects/SamplePages` class="nav-caption-link">
@@ -50,6 +51,8 @@ const base = import.meta.env.BASE_URL.endsWith('/')
 </header>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Jura&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap');
 
  .nav-wrapper {
   display: flex;
@@ -79,12 +82,14 @@ const base = import.meta.env.BASE_URL.endsWith('/')
   color: inherit;
   display: block;
   width: 100%;
+
 }
 
 .nav-title {
   font-size: clamp(1.2rem, 2.5vw, 2.2rem);
   margin: 0.5rem 0;
   color: white;
+  font-family: "Raleway", sans-serif;
   font-weight: 700;
 }
 
