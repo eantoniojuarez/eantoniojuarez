@@ -12,12 +12,13 @@ const { link, text, icon, alt } = Astro.props;
     <a href={link} target="_blank" rel="noopener noreferrer" class="external-link">
     {icon && <img src={icon} alt={alt || "Link icon"} class="link-icon" />}
     <span class="link-text">{text}</span>
-    <span class="link-arrow">›</span>
+
     </a>
 </b>
 
 <style>
 .body{
+    padding: 1vh;
     display:flex;
     flex-direction: column;
     width: 100%;
@@ -51,11 +52,5 @@ const { link, text, icon, alt } = Astro.props;
 
 .link-text {
   white-space: nowrap;
-}
-
-.link-arrow {
-  font-size: 1.25rem;
-  line-height: 1;
-  margin-left: auto;
 }
 </style>

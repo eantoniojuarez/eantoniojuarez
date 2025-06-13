@@ -14,9 +14,11 @@ import img4 from '../../assets/SilverCage/daelynSheetLines.webp';
 import img5 from '../../assets/SilverCage/nicoSheetLines.webp';
 import img6 from '../../assets/SilverCage/botSheetLines.webp';
 import img7 from '../../assets/SilverCage/5final.webp'
+import img07 from '../../assets/SilverCage/5cover.webp'
 import img8 from '../../assets/SilverCage/5flats.webp'
 import img9 from '../../assets/SilverCage/5_3d.webp'
 import img10 from '../../assets/SilverCage/5lines.webp'
+import img11 from '../../assets/SilverCage/walk.png'
 
 const images = [
     { 
@@ -55,33 +57,37 @@ const images = [
     }, {     
         src: img4.src, 
         alt: "Image 4", 
-        caption: "", 
+        caption: ` \x09
+        \n
+         \x09`, 
         row: 4, 
         size: "small", 
         captionLocation: "center", 
-        fontSize: ".58vw", 
+        fontSize: "1rem", 
         captionWidth: "13vw", 
         imageWidth: "", 
         imgMobileWidth: "" 
     }, { 
         src: img5.src, 
         alt: "Image 5", 
-        caption: "", 
+        caption: "Lineart of the above three character sheets", 
         row: 4, 
         size: "medium", 
-        captionLocation: "above", 
-        fontSize: ".58vw", 
+        captionLocation: "center", 
+        fontSize: "1rem", 
         captionWidth: "",  
         imageWidth: "", 
         imgMobileWidth: "", 
     }, { 
         src: img6.src, 
         alt: "Image 5", 
-        caption: "", 
+        caption: ` \x09
+        \n
+         \x09`, 
         row: 4, 
         size: "medium", 
         captionLocation: "center", 
-        fontSize: ".58vw", 
+        fontSize: "1rem", 
         captionWidth: "",  
         imageWidth: "", 
         imgMobileWidth: "", 
@@ -89,18 +95,18 @@ const images = [
     { 
         src: img7.src, 
         alt: "", 
-        caption: "Lineart of the above three character sheets", 
+        caption: "Lineup of 5 Key Characters", 
         row: 5, 
         size: "medium", 
         captionLocation: "above", 
-        fontSize: ".58vw", 
+        fontSize: "2rem", 
         captionWidth: "",  
         imageWidth: "", 
         imgMobileWidth: "", 
     }, {     
         src: img8.src, 
         alt: "Image 4", 
-        caption: "", 
+        caption: `Flats`, 
         row: 6, 
         size: "small", 
         captionLocation: "center", 
@@ -111,18 +117,7 @@ const images = [
     }, { 
         src: img9.src, 
         alt: "Image 5", 
-        caption: "", 
-        row: 6, 
-        size: "medium", 
-        captionLocation: "above", 
-        fontSize: ".58vw", 
-        captionWidth: "",  
-        imageWidth: "", 
-        imgMobileWidth: "", 
-    }, { 
-        src: img10.src, 
-        alt: "Image 5", 
-        caption: "", 
+        caption: `Shadows/Highlights`, 
         row: 6, 
         size: "medium", 
         captionLocation: "center", 
@@ -130,8 +125,31 @@ const images = [
         captionWidth: "",  
         imageWidth: "", 
         imgMobileWidth: "", 
+    }, { 
+        src: img10.src, 
+        alt: "Image 5", 
+        caption: `Lines`, 
+        row: 6, 
+        size: "medium", 
+        captionLocation: "center", 
+        fontSize: ".58vw", 
+        captionWidth: "",  
+        imageWidth: "", 
+        imgMobileWidth: "", 
+    }, { 
+        src: img11.src, 
+        alt: "Image 5", 
+        caption: `Battle Ready`, 
+        row: 7, 
+        size: "medium", 
+        captionLocation: "above", 
+        fontSize: "2rem", 
+        captionWidth: "",  
+        imageWidth: "50vw", 
+        imgMobileWidth: "", 
     },
 ];
+
 ---
 
 
@@ -140,6 +158,6 @@ const images = [
     
     <!-- You can put nav links, social icons, etc. here -->
   </Fragment>
-  <Title title="Silver Cage" caption="A sci-fi story about identity and survival" />
+  <Title title="Silver Cage" caption="A sci-fi story about identity and survival" image={img07.src}/>
   <WorkShowcase images={images} />
 </BaseLayout>

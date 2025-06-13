@@ -9,16 +9,16 @@ import WorkShowcase from '../../components/WorkShowcase.astro';
 import ExternalLink from '../../components/externalLink.astro'
 import Youtube from '../../components/ytembed.astro'
 
-import img1 from '../../assets/SuperFoodChain/sfcSquareCover.png';
-import squareCover from '../../assets/SuperFoodChain/sfcSquareCover1.png';
-import img2 from '../../assets/SuperFoodChain/sfcCover.png';
-import img3 from'../../assets/SuperFoodChain/sfcConcepts.png';
+import img1 from '../../assets/SuperFoodChain/sfcSquareCover.webp';
+import squareCover from '../../assets/SuperFoodChain/sfcSquareCover1.webp';
+import img2 from '../../assets/SuperFoodChain/sfcCover.webp';
+import img3 from'../../assets/SuperFoodChain/sfcConcepts.webp';
 import img4 from '../../assets/SuperFoodChain/all6.gif';
-import chefConcepts from '../../assets/SuperFoodChain/chefConcepts.png';
+import chefConcepts from '../../assets/SuperFoodChain/chefConcepts.webp';
 import chefIdle from '../../assets/SuperFoodChain/chefIdle.gif'
-import backgroundProcess from '../../assets/SuperFoodChain/backgroundProcess.png'
-import img6 from '../../assets/SuperFoodChain/allFruits.png';
-import coverWorkflow from '../../assets/SuperFoodChain/sfcCoverWorkflow.png'
+import backgroundProcess from '../../assets/SuperFoodChain/backgroundProcess.webp'
+import img6 from '../../assets/SuperFoodChain/allFruits.webp';
+import coverWorkflow from '../../assets/SuperFoodChain/sfcCoverWorkflow.webp'
 import rats1 from '../../assets/SuperFoodChain/1rats.gif'
 import rats2 from '../../assets/SuperFoodChain/2rats.gif'
 
@@ -150,7 +150,10 @@ const images = [
     },{ 
         src: backgroundProcess.src, 
         alt: "Image 5", 
-        caption: "", 
+        caption: `For the background I tested a couple textures and different levels of hue and contrast before settling on a more traditional square tile. 
+        
+        Since the background was not meant to move, I rendered a single screen-size texture procedurally so I can make more adjustments later if needed.
+        This way I was also able to give slight texture variations on the tile and the grout between in order to break up the repeating texture look.`, 
         row: 8, 
         size: "medium", 
         captionLocation: "center", 
@@ -173,8 +176,8 @@ const images = [
   <Youtube videoId="QMTxXzG6YUU" title="Final Level Playthrough" />
   
   <ExternalLink 
-  link="https://example.com" 
-  text="Download now"
+  link="https://gdiac.cs.cornell.edu/gdiac/showcase/gallery/superfoodchain/" 
+  text="Available for Download on Windows"
   icon= {img1.src}
   alt="External site"
   

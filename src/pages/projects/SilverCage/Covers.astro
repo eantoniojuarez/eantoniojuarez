@@ -5,9 +5,12 @@ import BaseLayout from '../../../layouts/baseLayout.astro';
 import Title from '../../../components/Title.astro';
 import WorkShowcase from '../../../components/WorkShowcase.astro';
 
-import img1 from '../../../assets/ComicPages/SilverCage/2_01.webp';
-import img2 from '../../../assets/ComicPages/SilverCage/2_02.webp';
-import img3 from'../../../assets/ComicPages/SilverCage/2_03.webp';
+import img1 from '../../../assets/ComicPages/Covers/cover1.png';
+import img2 from '../../../assets/ComicPages/Covers/cover2.png';
+import img3 from'../../../assets/ComicPages/Covers/cover3.png';
+import img4 from'../../../assets/ComicPages/Covers/cover3Color.png';
+import img5 from'../../../assets/ComicPages/Covers/cover2Process.png';
+
 import CardPage from '../../../components/cardPage.astro';
 
 import openingCover from '../../../assets/CardCovers/openingCover.png'
@@ -19,35 +22,50 @@ const images = [
     { 
         src: img1.src, 
         alt: "Page 1", 
-        caption: "Opening Sequence", 
+        caption: `Sample Comic Cover Illustrations
+        \n\n
+        \n\n
+        Issue #1 Cover`, 
         row: 1, 
         size: "large", 
         captionLocation: "above", 
         fontSize: "3rem", 
         captionWidth: "", 
-        imageWidth: "", 
+        imageWidth: "50vw", 
         imgMobileWidth: "" 
     }, { 
         src: img2.src, 
         alt: "Page 2", 
-        caption: "",
+        caption: "Issue #2 Cover",
         row: 2, 
         size: "large", 
-        captionLocation: "center", 
+        captionLocation: "above", 
         fontSize: "", 
+        captionWidth: "", 
+        imageWidth: "50vw", 
+        imgMobileWidth: "" 
+    }, { 
+        src: img5.src, 
+        alt: "Page 2", 
+        caption: `Like for my pages and other art I go through mutliple iterations. Usually composition issues can be caught in the thumbnail/sketch phase,
+        however for this cover, I felt the need to restart the work multiple times because I realized the drawing needed to be tweaked much more to get the original idea across properly`,
+        row: 3, 
+        size: "large", 
+        captionLocation: "right", 
+        fontSize: "1.5rem", 
         captionWidth: "", 
         imageWidth: "", 
         imgMobileWidth: "" 
     }, { 
         src: img3.src, 
         alt: "Page 3", 
-        caption: "", 
-        row: 3, 
+        caption: "Issue #5 Cover", 
+        row: 4, 
         size: "large", 
-        captionLocation: "center", 
+        captionLocation: "above", 
         fontSize: "", 
         captionWidth: "", 
-        imageWidth: "", 
+        imageWidth: "50vw", 
         imgMobileWidth: ""  
     }
   ];
@@ -60,20 +78,20 @@ const sections = [
       { 
         title: "Silver Cage - Action Sample", 
         image: actionCover.src, 
-        description: "Merging organic forms with mechanical shells.", 
+        description: "", 
         link:`projects/SilverCage/ActionSample`,
       },
       { 
         title: "Silver Cage - Opening", 
         image: openingCover.src, 
-        description: "Moodboards and figures from a future metropolis.",
+        description: "",
         link: `projects/SilverCage/Opening`,
       },
       { 
-        title: "Cover Samples", 
-        image: coversCover.src, 
-        description: "Moodboards and figures from a future metropolis.",
-        link: `projects/SilverCage/Covers`,
+        title: "Silver Cage - Sample Sequence 2", 
+        image: otherCover.src, 
+        description: "",
+        link: `projects/SilverCage/Sample2`,
       },
 
     ]
@@ -87,7 +105,7 @@ const sections = [
     
     <!-- You can put nav links, social icons, etc. here -->
   </Fragment>
-  <Title title="Silver Cage" caption="Comic Book Page Sequences" image={img1.src}/>
+  <Title title="Comic Covers" caption="Silver Cage Mock-up Covers" image={img1.src}/>
   <CardPage sections={sections}/>
   <WorkShowcase images={images} />
 </BaseLayout>
