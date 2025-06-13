@@ -1,0 +1,195 @@
+---
+import "../styles/global.css"
+---
+
+<section class="contact-section">
+  <h2 class="contact-title">Request a Commission or Print</h2>
+  <form id="contact-form" class="contact-form">
+    <label>
+      <span>Your Name</span>
+      <input type="text" name="name" required />
+    </label>
+
+    <label>
+      <span>Email Address or Social Media Handle</span>
+      <span style=`font-size: 1rem`>please format socials as "handle@[socialmediasite].com"</span>
+      <input type="email" name="email" required />
+    </label>
+
+    <label>
+      <span>Message</span>
+      <textarea name="message" rows="5" required></textarea>
+    </label>
+
+    <button id="submit-btn" type="submit">Send Request</button>
+  </form>
+  <div id="form-notice" class="form-notice" hidden></div>
+
+</section>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Jura&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap');
+
+.contact-section {
+    max-width: 600px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background-color: #1e1b2e;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+.contact-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #f3e9f4;
+    font-family: "Jura",sans-serif;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.contact-form label {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #cfc6d8;
+}
+
+.contact-form input,
+.contact-form textarea {
+    margin-top: 0.4rem;
+    padding: 0.6rem 0.75rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-size: 1rem;
+    background-color: #2b263c;
+    color: white;
+    transition: border 0.2s ease, background 0.2s ease;
+    resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    background-color: #3a344f;
+    border: 1px solid #8e44ad;
+}
+
+.contact-form button {
+    margin-top: 0.5rem;
+    padding: 0.75rem 1rem;
+    background-color: #cc4699;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-family: "Jura",sans-serif;
+}
+
+.contact-form button:hover {
+    background-color: #e157b1;
+}
+
+.contact-form button:disabled {
+    background-color: #6c4e63;
+    cursor: not-allowed;
+}
+
+.form-notice {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    font-size: 1.5rem;
+    text-align: center;
+    justify-self: center;
+    background-color: #2e1d3e;
+    color: #fff;
+    border: 1px solid transparent;
+    transition: opacity 0.3s ease;
+}
+
+.form-notice.success {
+    border-color: #3ddc97;
+    background-color: #253e35;
+    color: #b9f1d4;
+}
+
+.form-notice.error {
+    border-color: #ff6b6b;
+    background-color: #41232c;
+    color: #ffb3b3;
+}
+
+</style>
+
+<script type="module">
+    const url ='https://script.google.com/macros/s/AKfycbz9QgzmfweIRQnAPR3ZEizWUcpmkaIGLMSBayFeS-T2MdCg5e-34RBZLCoEI6yv1DQZjg/exec';
+
+    document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById('contact-form');
+    const button = document.getElementById('submit-btn');
+    const notice = document.getElementById("form-notice");
+    let isCooldown = false;
+
+    function showNotice(message, type = "success") {
+      notice.textContent = message;
+      notice.className = `form-notice ${type}`;
+      notice.hidden = false;
+
+      setTimeout(() => {
+        notice.hidden = true;
+      }, 5000);
+    }
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (isCooldown) return;
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        button.disabled = true;
+        button.textContent = "Sending...";
+
+        const res = await fetch(url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8',
+          },
+          body: JSON.stringify(data),
+        });
+
+        const result = await res.json();
+        console.log('Success:', result);
+        form.reset();
+        showNotice("Thanks! Your request was submitted.", "success");
+
+      } catch (err) {
+        console.error('Error:', err);
+        showNotice("Something went wrong. Please try again.", "error");
+      }
+
+
+      button.textContent = "Send Request";
+      isCooldown = true;
+
+      setTimeout(() => {
+        button.disabled = false;
+        isCooldown = false;
+      }, 4000);
+    });
+  });
+</script>
