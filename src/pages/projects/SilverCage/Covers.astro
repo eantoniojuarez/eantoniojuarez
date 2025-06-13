@@ -5,11 +5,11 @@ import BaseLayout from '../../../layouts/baseLayout.astro';
 import Title from '../../../components/Title.astro';
 import WorkShowcase from '../../../components/WorkShowcase.astro';
 
-import img1 from '../../../assets/ComicPages/Covers/cover1.png';
-import img2 from '../../../assets/ComicPages/Covers/cover2.png';
-import img3 from'../../../assets/ComicPages/Covers/cover3.png';
-import img4 from'../../../assets/ComicPages/Covers/cover3Color.png';
-import img5 from'../../../assets/ComicPages/Covers/cover2Process.png';
+import img1 from '../../../assets/ComicPages/Covers/cover1.webp';
+import img2 from '../../../assets/ComicPages/Covers/cover2.webp';
+import img3 from'../../../assets/ComicPages/Covers/cover3.webp';
+import img4 from'../../../assets/ComicPages/Covers/cover3Color.webp';
+import img5 from'../../../assets/ComicPages/Covers/cover2Process.webp';
 
 import CardPage from '../../../components/cardPage.astro';
 
@@ -40,7 +40,7 @@ const images = [
         row: 2, 
         size: "large", 
         captionLocation: "above", 
-        fontSize: "", 
+        fontSize: "2rem", 
         captionWidth: "", 
         imageWidth: "50vw", 
         imgMobileWidth: "" 
@@ -54,7 +54,7 @@ const images = [
         captionLocation: "right", 
         fontSize: "1.5rem", 
         captionWidth: "", 
-        imageWidth: "", 
+        imageWidth: "50rem", 
         imgMobileWidth: "" 
     }, { 
         src: img3.src, 
@@ -63,9 +63,21 @@ const images = [
         row: 4, 
         size: "large", 
         captionLocation: "above", 
-        fontSize: "", 
+        fontSize: "2rem", 
         captionWidth: "", 
         imageWidth: "50vw", 
+        imgMobileWidth: ""  
+    },
+     { 
+        src: img4.src, 
+        alt: "Page 3", 
+        caption: "Cover #5 Colored", 
+        row: 5, 
+        size: "large", 
+        captionLocation: "right", 
+        fontSize: "1.5rem", 
+        captionWidth: "", 
+        imageWidth: "25vw", 
         imgMobileWidth: ""  
     }
   ];
