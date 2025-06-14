@@ -14,7 +14,9 @@ const { title, caption, image } = Astro.props;
   <section id="hero">
     <div class="hero-text">
       <h1 class="hero-title">{title}</h1>
-      <p class="hero-caption">{caption}</p>
+      <div class="hero-caption">
+        {caption && caption.split('\n\n').map(p => <p>{p.split('\n').map((line, i) => <>{line}{i < p.split('\n').length - 1 && <br />}</>)}</p>)}
+      </div>
     </div>
   </section>
 </div>
@@ -64,12 +66,13 @@ const { title, caption, image } = Astro.props;
 
 /* Inner text */
 .hero-text {
-  max-width: 800px;
+  max-width: fit-content;
   width: 100%;
   color: rgb(0, 0, 0);
   display: flex;
   flex-direction: column;
   align-items: center;
+
 }
 
 .hero-title {
@@ -84,7 +87,6 @@ const { title, caption, image } = Astro.props;
   margin-top: 0.75rem;
   line-height: 1.4;
   color: #3b3b3b;
-  font-family: "Jura", sans-serif;
+  font-family: "Jura", sans-serif; 
 }
-
 </style>

@@ -64,7 +64,7 @@ const { images } = Astro.props;
           )}
 
           {image.caption && image.captionLocation === 'center' && (
-            <div class="caption center" style={`font-size: clamp(0.6rem, ${image.fontSize || '0.55vw'}, 3rem); line-height: clamp(0.6rem, ${image.fontSize || '0.55vw'}, 3rem) width: ${image.captionWidth || '100%'}`}>
+            <div class="caption center" style={`font-size: clamp(0.6rem, ${image.fontSize || '0.55vw'}, 3rem); line-height: clamp(0.6rem, ${image.fontSize || '0.55vw'}, 3rem); width: ${image.captionWidth || '100%'}`}>
               {image.caption && image.caption.split('\n\n').map(p => <p>{p.split('\n').map((line, i) => <>{line}{i < p.split('\n').length - 1 && <br />}</>)}</p>)}
             </div>
           )}
@@ -101,8 +101,10 @@ box-sizing: border-box;
   display: flex;
   flex-wrap: nowrap;
   gap: .5vw;
-  justify-content: flex-start;
+  max-width: inherit;
+  justify-content: center;
   align-items: stretch;
+  
 
 }
   
@@ -126,7 +128,6 @@ box-sizing: border-box;
   flex-direction: column;
   justify-content: center;
   flex: 1 1 auto;
-  flex-shrink: 0;
   max-width: var(--image-width, 100%);
   
 }
@@ -209,7 +210,7 @@ box-sizing: border-box;
   .image-wrapper {
     
     max-width: calc(var(--image-mobile-width, 100%) - 1rem);
-  
+    padding: .25rem;
   }
 
   .caption {
