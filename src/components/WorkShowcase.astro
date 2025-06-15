@@ -1,10 +1,4 @@
 ---
-import img1 from '../assets/conceptArtVid.png';
-import img2 from '../assets/conceptArtSC.png';
-import img3 from'../assets/pageSample.png';
-import img4 from '../assets/sample4.png';
-import img5 from '../assets/sample5.gif';
-
 import '../styles/global.css';
 
 export interface ImageItem {
@@ -222,6 +216,68 @@ box-sizing: border-box;
     max-height: 500PX;
   }
 }
+
+@media print {
+  .image-showcase {
+    padding: 1rem;
+    gap: 2rem;
+  }
+
+  .image-row {
+    flex-direction: column !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 2rem !important;
+  }
+
+  .image-block,
+  .image-block.left,
+  .image-block.right {
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: 1rem !important;
+    box-sizing: border-box;
+    page-break-inside: avoid; /* Prevent mid-image breaks */
+  }
+
+  .image-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0.5rem !important;
+  }
+
+  .image-wrapper img {
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: contain;
+  }
+
+  .caption {
+    font-size: 1rem !important;
+    width: 100% !important;
+    text-align: center;
+    color: #000 !important;
+    padding: 0.5rem;
+  }
+
+  .caption.long {
+    max-height: none !important;
+    overflow: visible !important;
+    font-size: 1rem !important;
+    line-height: 1.5;
+    padding: 0.5rem !important;
+  }
+
+  body,
+  html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+}
+
 </style>
 
 <script>
