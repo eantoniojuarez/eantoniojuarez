@@ -1,0 +1,114 @@
+---
+
+import '../../../styles/global.css'
+import BaseLayout from '../../../layouts/baseLayout.astro';
+import Title from '../../../components/Title.astro';
+import WorkShowcase from '../../../components/WorkShowcase.astro';
+
+import img1 from '../../../assets/ComicPages/Spreads/room.webp';
+import img2 from '../../../assets/ComicPages/Spreads/roomLines.webp';
+import img3 from'../../../assets/ComicPages/Spreads/TurtleColor.webp';
+import img4 from'../../../assets/ComicPages/Spreads/TurtleInks.webp';
+import img5 from'../../../assets/ComicPages/Spreads/envTests.webp';
+import img7 from '../../../assets/ComicPages/Spreads/riverLines.webp'
+import img6 from '../../../assets/ComicPages/Other/background.webp';
+
+const images = [
+    { 
+        src: img1.src, 
+        alt: "Page 1", 
+        caption: `Room converted to workshop`, 
+        row: 1, 
+        size: "large", 
+        captionLocation: "above", 
+        fontSize: "2rem", 
+        captionWidth: "", 
+        imageWidth: "", 
+        imgMobileWidth: "" 
+    }, { 
+        src: img2.src, 
+        alt: "Page 2", 
+        caption: "",
+        row: 2, 
+        size: "large", 
+        captionLocation: "above", 
+        fontSize: "2rem", 
+        captionWidth: "", 
+        imageWidth: "", 
+        imgMobileWidth: "" 
+    }, { 
+        src: img5.src, 
+        alt: "Page 2", 
+        caption: `Thumbnail Paintings of what the city looks like from outside the walls`,
+        row: 3, 
+        size: "large", 
+        captionLocation: "right", 
+        fontSize: "1.5rem", 
+        captionWidth: "", 
+        imageWidth: "70vw", 
+        imgMobileWidth: "" 
+    }, 
+    { 
+        src: img6.src, 
+        alt: "Page 3", 
+        caption: "River of scrap", 
+        row: 4, 
+        size: "large", 
+        captionLocation: "above", 
+        fontSize: "2rem", 
+        captionWidth: "", 
+        imageWidth: "", 
+        imgMobileWidth: ""  
+    },  
+    { 
+        src: img7.src, 
+        alt: "Page 3", 
+        caption: "", 
+        row: 5, 
+        size: "large", 
+        captionLocation: "above", 
+        fontSize: "2rem", 
+        captionWidth: "", 
+        imageWidth: "", 
+        imgMobileWidth: ""  
+    },
+    { 
+        src: img3.src, 
+        alt: "Page 3", 
+        caption: "life? outside the walls", 
+        row: 6, 
+        size: "large", 
+        captionLocation: "above", 
+        fontSize: "2rem", 
+        captionWidth: "", 
+        imageWidth: "", 
+        imgMobileWidth: ""  
+    },
+     { 
+        src: img4.src, 
+        alt: "Page 3", 
+        caption: "", 
+        row: 7, 
+        size: "large", 
+        captionLocation: "right", 
+        fontSize: "1.5rem", 
+        captionWidth: "", 
+        imageWidth: "", 
+        imgMobileWidth: ""  
+    }
+  ];
+
+
+
+---
+
+
+<BaseLayout>
+  <Fragment slot="sidebar">
+    
+    <!-- You can put nav links, social icons, etc. here -->
+  </Fragment>
+  <Title title="Spreads and Illustrations" caption="Silver Cage Environments, Scenes" image={img1.src}/>
+
+  <WorkShowcase images={images} />
+</BaseLayout>

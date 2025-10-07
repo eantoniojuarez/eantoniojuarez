@@ -1,0 +1,97 @@
+---
+import Welcome from '../../components/Welcome.astro';
+import Layout from '../../layouts/Layout.astro';
+
+import '../../styles/global.css'
+import BaseLayout from '../../layouts/baseLayout.astro';
+import Title from '../../components/Title.astro';
+import WorkShowcase from '../../components/WorkShowcase.astro';
+
+import img1 from '../../assets/DukeVS/ScarletTest1.webp';
+import img2 from '../../assets/DukeVS/ScarletTest2.webp';
+import img3 from'../../assets/DukeVS/ScarletSketches.webp';
+import img4 from '../../assets/DukeVS/deathTest.webp';
+import img5 from '../../assets/DukeVS/CowboySketches1.webp';
+import img6 from '../../assets/DukeVS/CowboySketches2.webp';
+
+const images = [
+{ 
+        src: img1.src, 
+        alt: "Image 5", 
+        caption: `Character Design for Enemy: Scarlet`, 
+        row: 1, 
+        size: "large", 
+        captionLocation: "above", 
+        fontSize: "2rem", 
+        captionWidth: "",  
+        imageWidth: "", 
+        imgMobileWidth: "", 
+    },    { 
+        src: img2.src, 
+        alt: "Concept art 1", 
+        caption: "Designs voted for, testing more colors and alterations", 
+        row: 2, 
+        size: "large", 
+        captionLocation: "center", 
+        fontSize: "1rem", 
+        captionWidth: "", 
+        imageWidth: "", 
+        imgMobileWidth: "" 
+    }, { 
+        src: img4.src, 
+        alt: "Sketch study 2", 
+        caption: "Originally designed as character inpired by concept of death, before story script was finalized. Game Mechanic was interesting to team",
+        row: 3, 
+        size: "large", 
+        captionLocation: "center", 
+        fontSize: "1vw", 
+        captionWidth: "", 
+        imageWidth: "", 
+        imgMobileWidth: "" 
+    }, { 
+        src: img3.src, 
+        alt: "Finished poster 3", 
+        caption: "Adapting original Scarlet character designed by other teammate (left) to game mechanic from Death", 
+        row: 3, 
+        size: "large", 
+        captionLocation: "center", 
+        fontSize: "1vw", 
+        captionWidth: "", 
+        imageWidth: "55vw", 
+        imgMobileWidth: ""  
+    }, {     
+        src: img5.src, 
+        alt: "Image 4", 
+        caption: ``, 
+        row: 5, 
+        size: "small", 
+        captionLocation: "center", 
+        fontSize: "1rem", 
+        captionWidth: "13vw", 
+        imageWidth: "", 
+        imgMobileWidth: "" 
+    }, { 
+        src: img6.src, 
+        alt: "Image 5", 
+        caption: "", 
+        row: 5, 
+        size: "medium", 
+        captionLocation: "center", 
+        fontSize: "1rem", 
+        captionWidth: "",  
+        imageWidth: "", 
+        imgMobileWidth: "", 
+    }, 
+];
+
+---
+
+
+<BaseLayout>
+  <Fragment slot="sidebar">
+    
+    <!-- You can put nav links, social icons, etc. here -->
+  </Fragment>
+  <Title title="Duke vs the Gang" caption="Western Bullet Hell Game Under Development" image={img1.src}/>
+  <WorkShowcase images={images} />
+</BaseLayout>
