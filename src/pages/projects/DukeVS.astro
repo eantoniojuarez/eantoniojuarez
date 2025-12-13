@@ -6,8 +6,9 @@ import '../../styles/global.css'
 import BaseLayout from '../../layouts/baseLayout.astro';
 import Title from '../../components/Title.astro';
 import WorkShowcase from '../../components/WorkShowcase.astro';
-
-import img1 from '../../assets/DukeVs/ScarletTest1.webp';
+import img7 from '../../assets/DukeVs/ashGame.webp';
+import img12 from '../../assets/DukeVs/ScarletTest1.webp';
+import img1 from '../../assets/DukeVs/ashFinal.webp';
 import img2 from '../../assets/DukeVs/ScarletTest2.webp';
 import img3 from'../../assets/DukeVs/ScarletSketches.webp';
 import img4 from '../../assets/DukeVs/deathTest.webp';
@@ -18,7 +19,18 @@ const images = [
 { 
         src: img1.src, 
         alt: "Image 5", 
-        caption: `Character Design for Enemy: Scarlet`, 
+        caption: `Character Design for Boss: Ash`, 
+        row: 0, 
+        size: "large", 
+        captionLocation: "above", 
+        fontSize: "3rem", 
+        captionWidth: "",  
+        imageWidth: "", 
+        imgMobileWidth: "", 
+    },{ 
+        src: img12.src, 
+        alt: "Image 5", 
+        caption: ``, 
         row: 1, 
         size: "large", 
         captionLocation: "above", 
@@ -78,6 +90,17 @@ const images = [
         size: "medium", 
         captionLocation: "center", 
         fontSize: "1rem", 
+        captionWidth: "",  
+        imageWidth: "", 
+        imgMobileWidth: "", 
+    }, { 
+        src: img7.src, 
+        alt: "Image 5", 
+        caption: "Game Sprite Development", 
+        row: 7, 
+        size: "medium", 
+        captionLocation: "above", 
+        fontSize: "3rem", 
         captionWidth: "",  
         imageWidth: "", 
         imgMobileWidth: "", 

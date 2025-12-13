@@ -16,6 +16,7 @@ const { title, caption, image } = Astro.props;
       <h1 class="hero-title">{title}</h1>
       <div class="hero-caption">
         {caption && caption.split('\n\n').map(p => <p>{p.split('\n').map((line, i) => <>{line}{i < p.split('\n').length - 1 && <br />}</>)}</p>)}
+        <p class="contact-info">contact: edantoniojuarez@gmail.com</p>
       </div>
     </div>
   </section>
@@ -84,6 +85,14 @@ const { title, caption, image } = Astro.props;
 
 .hero-caption {
   font-size: clamp(1rem, 2vw, 4rem);
+  margin-top: 0.75rem;
+  line-height: 1.4;
+  color: #1a1222;
+  font-family: "Jura", sans-serif; 
+}
+
+.contact-info {
+  font-size: clamp(1rem, 1.7vw, 2.5rem);
   margin-top: 0.75rem;
   line-height: 1.4;
   color: #1a1222;
