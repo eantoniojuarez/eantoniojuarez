@@ -1,0 +1,144 @@
+---
+export interface Props {
+  title: string;
+  caption: string;
+  image?: string;        // optional blurred background
+  profileImage?: string; // circular profile image
+}
+
+const { title, caption, image, profileImage } = Astro.props;
+---
+
+<div id="container" style={`--hero-img: url('${image ?? ""}')`}>
+  <div class="background"></div>
+
+  <section id="hero">
+    <div class="hero-inner">
+      <!-- Profile image (left ~1/3) -->
+      <div class="avatar-wrapper">
+        {profileImage && (
+          <img
+            src={profileImage}
+            alt="Profile picture"
+            class="avatar"
+            loading="eager"
+          />
+        )}
+      </div>
+
+      <!-- Text content (right ~2/3) -->
+      <div class="hero-text">
+        <h1 class="hero-title">{title}</h1>
+        <div class="hero-caption">
+          {caption && caption
+            .split('\n\n')
+            .map(p => (
+              <p>
+                {p.split('\n').map((line, i, arr) => (
+                  <>{line}{i < arr.length - 1 && <br />}</>
+                ))}
+              </p>
+            ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Jura&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap');
+
+:root {
+  --hero-min-height: 60vh; /* ~0.6 of viewport */
+  --hero-bg: rgba(0, 0, 255, 0.6);
+}
+
+#container {
+  font-family: "Raleway", sans-serif;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Blurred background */
+.background {
+  position: absolute;
+  inset: 0;
+  background: var(--hero-bg);
+  background-image: var(--hero-img);
+  background-size: cover;
+  background-position: center;
+  filter: blur(20px) contrast(75%);
+  z-index: -1;
+  opacity: 0.6;
+}
+
+#hero {
+  min-height: var(--hero-min-height);
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 3rem 2rem 6rem; /* bottom padding lets next section peek */
+  backdrop-filter: blur(6px);
+  box-sizing: border-box;
+}
+
+.hero-inner {
+  width: 100%;
+  max-width: 75%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* image / text */
+  gap: 3rem;
+}
+
+.avatar-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar {
+  width: 220px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.hero-text {
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 6vw, 6rem);
+  margin: 0;
+  font-family: "Jura", sans-serif;
+  font-weight: 700;
+}
+
+.hero-caption {
+  font-size: clamp(1.5rem, 1.6vw, 2rem);
+  margin-top: 1rem;
+  line-height: 1.5;
+  max-width: 40ch;
+  color: #000000;
+  font-family: "Jura", sans-serif;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-caption {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+</style>

@@ -3,7 +3,7 @@ import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
 import BaseLayout from '../layouts/baseLayout.astro';
-import Title from '../components/Title.astro';
+import Title from '../components/Name.astro';
 import Footer from '../components/footer.astro';
 
 
@@ -14,10 +14,11 @@ import sfc from '../assets/SuperFoodChain/sfcCover.webp'
 import gb from '../assets/GrubBug/gbCover.webp'
 import cover from '../assets/ComicPages/Other/background.webp'
 import hansa from '../assets/Hansa/hansa.webp'
-import DukeVS from '../assets/DukeVs/ScarletTest1.webp'
+import DukeVS from '../assets/DukeVs/ashFinal.webp'
 import blanc from '../assets/SpinachMain/MonsieurBlanc.webp'
 import oth from '../assets/ComicPages/Spreads/room.webp'
 
+import pfp from '../assets/ComicPages/Other/self.webp'
 import openingCover from '../assets/CardCovers/openingCover.png'
 import actionCover from '../assets/CardCovers/actionCover.png'
 import otherCover from '../assets/CardCovers/otherCover.png'
@@ -27,7 +28,7 @@ import coversCover from '../assets/CardCovers/coversCover.png'
 
 const sections = [
  {
-    title: "Game Art",
+    title: "Game Art - Concept Design through Final Sprites",
     projects: [
       { 
         title: "Super Food Chain!", 
@@ -51,7 +52,7 @@ const sections = [
     ]
   },
   {
-    title: "Character Design",
+    title: "Character Design Process",
     projects: [
       { 
         title: "Silver Cage - Concepts", 
@@ -99,6 +100,6 @@ const sections = [
 
 
 
-  <Title title="Eduardo Antonio Juarez" caption="Versatile artist with focus on character art for comics and games" image={cover.src}/>
+  <Title title="Eduardo Antonio Juarez" caption="Versatile artist with focus on character art for comics and games.  \n\n Contact: edantoniojuarez@gmail.com" image={cover.src} profileImage={pfp.src}/>
   <CardPage sections={sections} />
   <Footer />
