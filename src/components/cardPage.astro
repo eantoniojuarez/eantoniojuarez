@@ -82,7 +82,6 @@ const base = import.meta.env.BASE_URL.endsWith('/')
 .project-section {
   display: flex;
   flex-direction: column;
-
 }
 
 .project-grid {
@@ -91,9 +90,17 @@ const base = import.meta.env.BASE_URL.endsWith('/')
   gap: 2vw;
   justify-content: space-evenly;
   margin-inline: 1rem;
+  align-items: stretch;
 }
 
-/* Clipped shape card */
+.project-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex: 1 1 calc(33.333% - 5rem);
+  max-width: clamp(2rem, 50vw, 70rem);
+}
+
 .project-card {
   position: relative;
   overflow: hidden;
@@ -101,20 +108,10 @@ const base = import.meta.env.BASE_URL.endsWith('/')
   flex-direction: column;
   clip-path: var(--clip-shape);
   box-sizing: border-box;
-    background: #3c1b46;
-}
-.project-card-link {
-  clip-path: var(--clip-shape);
- 
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  flex: 1 1 calc(33.333% - 5rem);
-  flex-shrink: 1;
-  max-width: clamp(2rem, 50vw, 70rem);
+  background: #3c1b46;
 
-
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  /* KEY */
+  height: 100%;
 }
 
 .project-card-link:hover {
@@ -137,13 +134,11 @@ const base = import.meta.env.BASE_URL.endsWith('/')
   box-sizing: border-box;
 }
 
-/* Image should fill the container perfectly */
 .project-card img {
   width: 100%;
-  height: auto;
-  display: block;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
-  z-index: 0;
+  object-position: center;
 }
 
 /* Content sits above image */
@@ -152,6 +147,7 @@ const base = import.meta.env.BASE_URL.endsWith('/')
   z-index: 2;
   background: rgba(250, 225, 255, 1);
   padding: 1rem;
+  height: 100%
 }
 
 .project-card h3 {
