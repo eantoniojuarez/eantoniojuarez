@@ -6,6 +6,7 @@ import '../../styles/global.css'
 import BaseLayout from '../../layouts/baseLayout.astro';
 import Title from '../../components/Title.astro';
 import WorkShowcase from '../../components/WorkShowcase.astro';
+import FancyLayout from '../../components/fancyLayout.astro';
 
 import img1 from '../../assets/SilverCage/daelynSheetColor.webp';
 import img2 from '../../assets/SilverCage/nicoSheetColor.webp';
@@ -29,7 +30,7 @@ import img14 from '../../assets/SilverCage/Final.webp'
 import img16 from '../../assets/SilverCage/petra_final.webp'
 
 import img17 from '../../assets/SilverCage/sketches.webp'
-
+const src = "SilverCage2";
 const images = [
 { 
         src: img12.src, 
@@ -235,5 +236,6 @@ const images = [
     <!-- You can put nav links, social icons, etc. here -->
   </Fragment>
   <Title title="Silver Cage" caption="A sci-fi story about identity and culture" image={img07.src}/>
-  <WorkShowcase images={images} />
+  <FancyLayout directory={src}'/>
+  
 </BaseLayout>
